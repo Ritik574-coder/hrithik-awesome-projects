@@ -1,2 +1,3 @@
 # hrithik-awesome-projects
-My personal archive of projects, tools, and scripts written in Python, SQL, and other languages.  4️⃣
+My personal archive of projects, tools, and scripts written in Python, SQL, and other languages.  
+Author - Ritik...........
