@@ -1,0 +1,501 @@
+car_id,brand,model,year,fuel_type,transmission,body_type,engine_cc,horsepower,mileage_kmpl,seating_capacity,price_usd,country_of_origin,color_options,is_available,created_at,updated_at
+1,Tesla,Model 3,2021,Hybrid,Manual,Hatchback,3358,381,18.32,2,117708.19,Svalbard & Jan Mayen Islands,"Blue,Red",TRUE,7/5/2024 18:06,4/16/2025 14:41
+2,Tesla,Model S,2017,Electric,Automatic,Sedan,3069,396,17.27,6,32736.01,Bulgaria,"Red,Green,Black,White",FALSE,3/23/2020 9:37,3/31/2021 15:52
+3,Honda,Civic,2014,Petrol,Automatic,Sedan,2765,201,10.84,6,45681.13,Niger,"White,Blue,Green,Gray",FALSE,10/20/2021 10:41,8/19/2024 13:19
+4,Toyota,RAV4,2007,Petrol,Automatic,Hatchback,1102,132,19.46,5,135773.1,Maldives,"Black,Red,Silver,Gray",TRUE,12/13/2023 5:52,7/23/2024 12:00
+5,Ford,Escape,2015,Electric,Automatic,Hatchback,3512,439,27.46,7,119717.09,South Africa,"White,Gray,Silver,Blue",FALSE,7/5/2020 10:14,6/17/2024 3:05
+6,BMW,5 Series,2007,Diesel,Manual,Hatchback,4671,408,14.7,5,110175.93,Namibia,"Silver,Red",TRUE,12/17/2022 12:21,8/16/2024 1:43
+7,Hyundai,Tucson,2024,Diesel,Manual,Sedan,3095,124,34.26,4,41951.59,Brunei Darussalam,"Silver,Gray,Green,Red",FALSE,5/10/2023 12:35,6/17/2024 18:09
+8,Ford,Escape,2010,Electric,Automatic,Coupe,2059,260,6.21,6,33589.99,Libyan Arab Jamahiriya,"Black,Blue,Silver,Red",TRUE,4/15/2021 5:58,9/24/2021 14:33
+9,BMW,X5,2021,Petrol,Manual,Hatchback,1040,267,27.29,5,21395.44,United States of America,"Silver,Black",FALSE,2/19/2023 1:17,2/5/2024 10:22
+10,Toyota,Corolla,2022,Hybrid,Manual,Hatchback,3349,128,30.4,6,63440.53,Bermuda,"Black,Blue,Silver",TRUE,12/1/2023 22:10,4/22/2025 8:16
+11,Tesla,Model Y,2017,Petrol,Manual,Hatchback,4487,288,29.43,2,49603.39,Dominican Republic,"Gray,Green",FALSE,1/26/2024 12:34,4/26/2025 14:12
+12,BMW,X3,2015,Petrol,Manual,Hatchback,1188,285,32.54,2,7946.05,Vietnam,"Red,Gray,Silver,White",TRUE,2/1/2024 6:25,1/18/2025 4:16
+13,Maruti,Ertiga,2012,Hybrid,Automatic,SUV,1673,185,11.36,5,110625.83,Namibia,"Black,Green",TRUE,10/7/2020 2:02,10/20/2022 4:56
+14,Honda,Civic,2009,Petrol,Manual,Coupe,4927,461,25.4,5,87200.74,Russian Federation,"Black,Red,White,Blue",TRUE,7/6/2020 14:29,7/28/2021 9:31
+15,BMW,X3,2011,Hybrid,Manual,SUV,1349,323,14.82,4,9857.79,Jersey,"Gray,Blue,Silver",TRUE,12/29/2023 11:27,8/23/2024 0:57
+16,BMW,5 Series,2010,Diesel,Manual,Coupe,4990,302,7.69,2,130982.15,Ukraine,"Black,Blue",TRUE,9/20/2023 0:14,5/12/2024 0:22
+17,BMW,X5,2023,Diesel,Automatic,SUV,1013,441,16.49,5,106652.65,Liberia,"Red,Silver,Blue,Gray",TRUE,1/30/2023 9:21,11/15/2024 5:49
+18,BMW,X5,2008,Diesel,Manual,SUV,3947,324,26.36,5,107619.89,Egypt,"Blue,Silver",TRUE,7/28/2024 6:45,8/29/2024 13:27
+19,Maruti,Swift,2021,Petrol,Manual,Hatchback,1340,421,24.48,5,49191.41,Japan,"Red,Blue",FALSE,11/26/2022 21:31,9/1/2024 1:27
+20,Hyundai,Sonata,2024,Petrol,Manual,Sedan,4608,279,28.77,2,139381.27,Bosnia and Herzegovina,"Green,Black,Red,White",FALSE,4/5/2024 8:11,1/13/2025 4:11
+21,Tesla,Model Y,2018,Hybrid,Manual,Hatchback,3760,146,26.98,6,104731.77,Guinea,"Blue,Red,White",TRUE,9/1/2020 13:05,5/6/2025 3:58
+22,Hyundai,Sonata,2006,Petrol,Automatic,Coupe,1611,259,33.43,6,28497.62,Bulgaria,"Green,Blue,Gray,White",TRUE,7/28/2023 2:55,1/16/2025 6:00
+23,Tesla,Model Y,2016,Diesel,Manual,SUV,3513,400,23.62,6,81592.64,Mauritius,"Blue,Green",TRUE,9/6/2022 4:36,11/4/2022 4:42
+24,Ford,Focus,2012,Diesel,Manual,SUV,2805,75,23.73,7,59243.8,Nigeria,"Silver,Black,Blue",TRUE,8/23/2022 20:13,4/16/2025 0:16
+25,BMW,5 Series,2015,Hybrid,Manual,Coupe,3538,136,21.1,2,57649,Congo,"Gray,Red",TRUE,4/28/2024 3:10,7/7/2024 22:22
+26,Ford,Fusion,2008,Electric,Manual,Hatchback,4006,393,6.95,7,46149.13,Saint Kitts and Nevis,"White,Green,Black,Gray",FALSE,3/31/2025 8:51,5/6/2025 9:51
+27,Hyundai,Sonata,2010,Diesel,Manual,SUV,4035,376,21.26,2,23638.33,Costa Rica,"Green,Red",FALSE,1/15/2021 0:51,7/20/2024 4:36
+28,Maruti,Ertiga,2006,Hybrid,Manual,SUV,4282,493,5.93,4,4934.98,Saudi Arabia,"Black,White,Gray",TRUE,2/1/2021 10:41,3/13/2023 6:56
+29,Hyundai,Santa Fe,2020,Petrol,Automatic,SUV,1868,189,13.83,2,85845.68,Cote d'Ivoire,"Black,Blue",FALSE,4/1/2025 15:30,4/2/2025 0:59
+30,Maruti,Baleno,2015,Electric,Manual,SUV,2964,183,8.88,5,84227.81,Jordan,"Red,Black,Silver",TRUE,10/15/2024 11:51,1/16/2025 14:47
+31,Hyundai,Tucson,2013,Electric,Manual,Hatchback,2283,311,32.85,4,99631.6,Peru,"Black,Blue",FALSE,4/7/2022 15:31,1/29/2023 15:54
+32,BMW,X3,2015,Petrol,Manual,Hatchback,4393,103,17.77,5,48692.67,Saudi Arabia,"White,Gray",TRUE,12/16/2020 5:49,5/5/2021 3:37
+33,Honda,Pilot,2015,Hybrid,Automatic,SUV,3261,244,24,2,136658.51,Cameroon,"White,Blue,Silver",TRUE,10/19/2024 16:23,3/30/2025 13:19
+34,Toyota,Camry,2015,Diesel,Manual,SUV,1647,310,24.75,7,37086.92,Chile,"Gray,Red,Green,Black",FALSE,5/19/2024 13:11,6/27/2024 19:41
+35,Maruti,Swift,2020,Diesel,Manual,Coupe,1012,267,22.61,7,104206.74,Greece,"Gray,Black,Blue,Red",FALSE,10/2/2023 6:28,10/6/2024 22:45
+36,BMW,3 Series,2016,Diesel,Manual,Sedan,4312,168,16.39,7,111863.17,Tunisia,"Silver,Green,Blue,White",FALSE,2/7/2024 4:02,5/1/2025 23:54
+37,Tesla,Model X,2011,Hybrid,Automatic,Coupe,3666,285,34.04,7,75463.13,Libyan Arab Jamahiriya,"Silver,White,Red,Gray",TRUE,3/22/2025 20:39,4/23/2025 9:24
+38,Ford,Focus,2008,Electric,Manual,Sedan,2794,366,32.38,4,65403.07,New Caledonia,"White,Red,Black,Blue",FALSE,3/30/2020 19:40,10/7/2021 18:22
+39,Maruti,Swift,2007,Electric,Manual,SUV,1064,260,18.12,7,35456.47,Czech Republic,"White,Gray,Silver,Red",TRUE,5/8/2022 9:46,8/7/2022 9:58
+40,Maruti,Vitara Brezza,2012,Hybrid,Automatic,Sedan,3925,461,16.56,4,122416.21,Croatia,"White,Silver",TRUE,4/1/2025 6:02,5/20/2025 19:50
+41,Toyota,Camry,2007,Petrol,Manual,Hatchback,3943,446,10.4,4,147360.67,Central African Republic,"Green,Black,Silver",TRUE,1/4/2021 3:25,8/19/2022 13:57
+42,Honda,Pilot,2011,Electric,Manual,Sedan,3946,303,30.79,5,120633.92,Tonga,"Green,Silver,Black,Red",TRUE,6/3/2023 2:17,9/6/2024 21:30
+43,Maruti,Ertiga,2013,Diesel,Manual,Coupe,3966,455,14.15,2,110809.83,Jordan,"Red,Blue,Green,Gray",TRUE,7/21/2022 1:19,6/12/2023 18:07
+44,Honda,Accord,2011,Electric,Automatic,SUV,1801,96,27.11,2,36375.3,Rwanda,"White,Green,Blue",TRUE,1/29/2024 23:08,11/25/2024 12:01
+45,Honda,Accord,2017,Petrol,Manual,Hatchback,1581,98,14.37,2,71482.29,Indonesia,"Blue,Silver,White",TRUE,2/11/2022 1:40,6/4/2023 17:36
+46,BMW,X5,2015,Petrol,Manual,Coupe,909,328,30.54,5,136803.63,Spain,"Blue,Silver,Green,Gray",TRUE,5/8/2022 13:49,5/1/2024 3:02
+47,Tesla,Model 3,2007,Petrol,Manual,SUV,1572,295,17.28,2,49517.19,Chile,"Black,Green,Silver",TRUE,11/8/2020 8:47,6/27/2021 20:45
+48,Toyota,RAV4,2010,Electric,Manual,Coupe,3401,342,20.73,4,28272.55,Senegal,"Green,Black",FALSE,10/18/2021 4:00,6/9/2022 1:45
+49,Honda,Accord,2011,Diesel,Automatic,Sedan,3434,110,5.74,5,74445.6,Venezuela,"Black,Blue",FALSE,9/30/2021 9:10,11/19/2023 21:46
+50,Ford,Escape,2023,Diesel,Manual,Coupe,800,385,8.16,5,106737.87,Portugal,"Silver,Green",TRUE,10/4/2023 9:51,7/31/2024 11:46
+51,Tesla,Model X,2015,Electric,Manual,Hatchback,3432,341,18.45,2,45893.99,Mauritius,"Blue,White",TRUE,7/24/2023 3:57,11/17/2023 4:54
+52,Honda,Pilot,2015,Hybrid,Automatic,Coupe,2384,406,7.97,4,53749.98,Pakistan,"Green,Gray",FALSE,6/6/2023 19:58,5/19/2024 12:37
+53,BMW,3 Series,2021,Petrol,Automatic,SUV,2710,496,33.75,2,106497.45,Pakistan,"Red,White",FALSE,12/13/2022 9:39,7/2/2023 7:22
+54,Ford,Escape,2006,Petrol,Automatic,SUV,4929,453,31.18,5,85370.08,Malawi,"Green,Red,Black,Silver",TRUE,9/13/2022 11:56,8/16/2023 1:39
+55,BMW,3 Series,2017,Electric,Automatic,Coupe,4047,141,14.99,2,98213.18,Afghanistan,"Black,White,Silver",FALSE,8/18/2023 10:37,1/15/2024 12:40
+56,Tesla,Model X,2005,Petrol,Manual,Coupe,3785,282,15.75,7,125936.25,Svalbard & Jan Mayen Islands,"Black,Green",TRUE,3/13/2025 0:26,3/29/2025 9:57
+57,BMW,3 Series,2023,Hybrid,Manual,SUV,4755,435,18.87,5,35637.02,Luxembourg,"Gray,Green,Black,Red",TRUE,1/26/2024 7:45,1/30/2024 11:21
+58,Honda,Civic,2024,Diesel,Manual,Sedan,4423,209,33.2,2,63378.32,Turkey,"Gray,White",TRUE,9/9/2021 4:53,9/21/2021 19:28
+59,Ford,Fusion,2014,Electric,Automatic,Hatchback,2721,374,22.4,7,109519.55,Turks and Caicos Islands,"Green,White,Gray",TRUE,10/20/2022 5:42,2/19/2024 22:34
+60,Toyota,Highlander,2016,Diesel,Automatic,Coupe,3585,335,34.93,4,122557.92,Benin,"Red,Blue,Gray,Silver",FALSE,12/21/2021 16:56,2/17/2025 19:34
+61,Honda,Accord,2024,Petrol,Manual,Hatchback,1183,202,32.9,7,32829.51,Tanzania,"Silver,Black,Red",FALSE,1/1/2025 0:13,4/1/2025 18:31
+62,Hyundai,Sonata,2016,Electric,Manual,SUV,4336,319,11.03,2,31331.75,Reunion,"Red,White,Blue",FALSE,12/21/2021 17:25,5/30/2024 10:38
+63,Toyota,RAV4,2012,Electric,Manual,Sedan,2716,426,34.61,5,22068.54,Guinea-Bissau,"Blue,Gray,Silver,Green",FALSE,6/15/2023 7:11,2/18/2024 11:12
+64,Ford,Fusion,2019,Diesel,Automatic,Coupe,4672,102,11.96,2,138644.49,Lesotho,"Black,Silver",FALSE,4/8/2024 15:30,5/24/2024 3:55
+65,Ford,Explorer,2021,Hybrid,Automatic,Hatchback,2229,155,34.79,7,67154.11,Nauru,"Silver,Gray,Black,Green",FALSE,5/7/2021 14:25,2/12/2022 18:45
+66,Honda,Accord,2006,Diesel,Manual,Hatchback,1298,233,12.64,5,146001.47,Dominican Republic,"Blue,Green,Red,Silver",FALSE,12/4/2024 13:59,1/1/2025 18:34
+67,Honda,Pilot,2006,Electric,Manual,Coupe,1825,346,24.46,2,26123.46,Guyana,"Black,Blue",FALSE,1/5/2020 23:11,10/29/2021 8:03
+68,Maruti,Ertiga,2009,Hybrid,Manual,Coupe,4876,283,24.33,5,46438.29,Zambia,"Gray,Red,Blue",FALSE,2/8/2021 15:04,6/26/2022 7:03
+69,Ford,Fusion,2012,Hybrid,Manual,Sedan,4846,295,16.37,4,14468.03,United Arab Emirates,"Black,Red",FALSE,4/24/2021 6:01,4/7/2024 6:26
+70,Hyundai,Santa Fe,2010,Petrol,Automatic,Sedan,2831,400,15.18,4,70088.97,Sweden,"Blue,Silver,Green",FALSE,11/29/2024 10:11,1/19/2025 19:43
+71,Tesla,Model 3,2020,Hybrid,Automatic,Sedan,4011,446,14.34,7,63816.21,Nepal,"Black,Red",FALSE,4/12/2024 16:30,10/4/2024 22:59
+72,Tesla,Model 3,2012,Petrol,Automatic,Coupe,1333,306,17.32,5,49048.76,Gambia,"Blue,Silver,White",TRUE,3/12/2023 18:43,9/2/2023 5:01
+73,Ford,Escape,2013,Hybrid,Automatic,Hatchback,4837,471,23.45,5,146112.06,Canada,"White,Black",TRUE,5/27/2021 16:18,12/17/2023 14:25
+74,Honda,Civic,2015,Diesel,Manual,Coupe,4258,322,18.63,2,77862.59,Congo,"Green,Red,Blue,White",TRUE,5/10/2021 1:58,7/7/2022 4:56
+75,Ford,Fusion,2016,Petrol,Automatic,Sedan,1636,461,29.03,4,149675.61,Bhutan,"Silver,Black,Red,Green",TRUE,10/23/2020 2:40,8/2/2021 15:03
+76,Honda,Pilot,2012,Diesel,Manual,SUV,2140,195,27.13,6,84335.59,Maldives,"Red,White,Blue,Black",FALSE,8/15/2024 19:07,8/24/2024 4:35
+77,Ford,Focus,2024,Diesel,Manual,SUV,4777,230,20.99,7,123056.48,Niger,"White,Silver",FALSE,9/28/2024 22:25,1/2/2025 8:23
+78,Hyundai,Elantra,2020,Hybrid,Manual,Sedan,3665,342,9,5,15189.19,Tajikistan,"Black,Silver,Red,Green",TRUE,3/18/2021 4:30,10/21/2023 15:50
+79,Toyota,Camry,2017,Diesel,Manual,Sedan,4098,238,27.01,4,135593.92,Liberia,"Red,Green,White",FALSE,8/13/2021 18:25,11/28/2022 17:28
+80,Tesla,Model Y,2024,Electric,Manual,Coupe,4490,104,13.08,4,62367.71,Austria,"Gray,Silver",FALSE,4/26/2020 1:38,10/21/2024 18:20
+81,Ford,Fusion,2019,Petrol,Automatic,Hatchback,1173,241,21.22,5,87735.82,Moldova,"Gray,White",FALSE,6/3/2024 21:19,8/15/2024 15:13
+82,Honda,Pilot,2005,Hybrid,Manual,Sedan,2455,110,21.57,6,106876.04,Kazakhstan,"Green,Red",TRUE,9/14/2021 10:12,9/11/2024 1:14
+83,Hyundai,Santa Fe,2012,Diesel,Manual,Coupe,1267,429,20.74,2,114246.47,Dominican Republic,"Blue,Green,Gray,Silver",FALSE,11/15/2021 23:06,8/2/2022 22:56
+84,Hyundai,Sonata,2013,Hybrid,Automatic,Coupe,2517,166,13.87,2,111220.83,Equatorial Guinea,"Red,Silver,Green,White",TRUE,2/15/2025 4:34,4/10/2025 17:36
+85,Honda,Pilot,2015,Diesel,Automatic,Coupe,4380,107,20.82,4,136710.43,Taiwan,"White,Black,Silver",FALSE,12/21/2022 10:14,3/2/2025 16:03
+86,Toyota,RAV4,2016,Petrol,Manual,SUV,2054,104,5.53,7,64687.73,Iraq,"Silver,Green,Red",TRUE,7/25/2022 23:54,3/4/2024 14:24
+87,BMW,X5,2024,Petrol,Automatic,Sedan,4293,90,29.11,7,30449.77,Wallis and Futuna,"Silver,Gray,White",TRUE,1/20/2024 13:11,2/23/2025 12:35
+88,Hyundai,Sonata,2014,Diesel,Manual,Coupe,2578,320,31.88,2,31885.27,Mauritania,"Green,Blue,Black",TRUE,6/25/2021 18:07,11/16/2023 15:10
+89,Maruti,Ertiga,2009,Hybrid,Automatic,Hatchback,2215,412,6.41,4,79751.9,Timor-Leste,"Blue,Silver,Red,Black",TRUE,4/29/2021 20:10,4/6/2025 0:53
+90,Ford,Fusion,2012,Electric,Manual,Sedan,1033,402,19.81,5,59399.28,Singapore,"White,Green",FALSE,1/21/2021 17:36,5/23/2025 2:56
+91,Ford,Focus,2018,Diesel,Manual,SUV,4947,334,18.97,7,91644,Haiti,"Green,Gray",TRUE,1/4/2021 1:03,4/30/2025 2:11
+92,Hyundai,Santa Fe,2022,Hybrid,Manual,SUV,3740,109,31.01,7,14151.51,United States of America,"White,Red,Blue,Gray",TRUE,10/21/2023 4:56,1/19/2024 4:51
+93,BMW,X5,2019,Petrol,Manual,Coupe,1063,107,27.15,4,134722.64,Samoa,"Black,Silver,Red",TRUE,3/12/2024 1:24,7/13/2024 3:48
+94,Honda,Civic,2012,Electric,Automatic,SUV,1194,249,5.16,7,54554.56,Spain,"Gray,Blue,Red",FALSE,5/17/2023 17:59,3/8/2025 13:26
+95,Maruti,Baleno,2015,Electric,Manual,Coupe,4909,435,13.63,2,44772.09,American Samoa,"Gray,White,Blue,Silver",FALSE,6/11/2024 10:34,11/4/2024 7:05
+96,BMW,5 Series,2021,Petrol,Automatic,SUV,3566,164,5.97,5,23651.48,Svalbard & Jan Mayen Islands,"Green,White",FALSE,8/5/2020 22:06,9/15/2022 12:36
+97,Honda,Accord,2017,Diesel,Manual,SUV,2041,308,20.94,4,140800.16,South Georgia and the South Sandwich Islands,"Red,White,Blue,Gray",FALSE,12/12/2023 22:52,12/14/2023 11:26
+98,Tesla,Model Y,2019,Petrol,Automatic,SUV,2800,301,28.97,2,129551.26,Liberia,"Red,Black,Green,Silver",TRUE,6/13/2023 0:26,8/1/2024 18:02
+99,Ford,Escape,2015,Petrol,Automatic,SUV,3328,352,7.51,5,69967.19,Liberia,"Gray,Blue,Silver",FALSE,2/7/2024 14:19,12/26/2024 18:55
+100,Toyota,Camry,2006,Diesel,Manual,Sedan,3441,277,11.09,4,77795.96,Nigeria,"Red,Green",FALSE,5/21/2020 6:51,10/16/2024 22:53
+101,Maruti,Swift,2012,Electric,Manual,Coupe,2919,125,18.51,2,102048.31,United States Virgin Islands,"Gray,White,Silver",FALSE,12/3/2020 1:55,12/13/2021 7:19
+102,Hyundai,Sonata,2023,Diesel,Automatic,Sedan,2980,193,15.68,2,95229.54,Niue,"Silver,White,Blue",TRUE,1/11/2023 18:00,11/15/2024 8:23
+103,BMW,5 Series,2006,Electric,Automatic,SUV,4098,66,18.93,7,134808.45,Egypt,"Green,Black",TRUE,8/3/2024 6:13,11/3/2024 17:17
+104,Maruti,Baleno,2009,Hybrid,Automatic,Hatchback,1482,126,20.76,7,134887.64,Isle of Man,"Red,Black,White,Blue",TRUE,9/11/2023 7:04,4/22/2025 21:45
+105,Hyundai,Sonata,2013,Hybrid,Manual,Hatchback,952,393,9.47,7,145510.83,Togo,"Green,Black,White",TRUE,7/2/2022 17:26,12/4/2023 19:38
+106,Ford,Focus,2021,Hybrid,Automatic,SUV,4559,228,33.76,6,116052.54,Sri Lanka,"Green,Silver,Blue",TRUE,9/26/2020 14:03,11/27/2020 16:34
+107,Maruti,Vitara Brezza,2007,Electric,Automatic,Hatchback,1810,348,31.77,6,43318.99,Lithuania,"White,Silver",TRUE,1/10/2022 12:10,8/30/2023 14:00
+108,Hyundai,Elantra,2013,Diesel,Automatic,Coupe,2343,198,32.44,6,104836.27,Bahrain,"Red,Green,Silver",FALSE,9/17/2022 16:20,8/16/2024 7:04
+109,Hyundai,Sonata,2022,Petrol,Automatic,Coupe,867,124,17.81,2,104440.37,Dominican Republic,"Gray,Green",TRUE,5/17/2024 14:09,9/22/2024 17:49
+110,Hyundai,Tucson,2008,Diesel,Manual,Hatchback,4266,493,15.47,5,87940.16,Fiji,"Silver,Gray,Green",FALSE,4/25/2021 9:03,11/20/2023 1:32
+111,Toyota,Camry,2015,Hybrid,Manual,Sedan,1832,325,7.91,2,93259.79,Mali,"Silver,Green",TRUE,11/13/2023 0:51,4/30/2024 4:03
+112,Toyota,Highlander,2019,Electric,Automatic,Sedan,3296,200,34.25,5,92489.98,Saint Barthelemy,"Blue,Green,Gray",TRUE,5/13/2021 14:12,9/14/2022 0:22
+113,Hyundai,Elantra,2016,Electric,Automatic,Sedan,3778,203,33.83,2,23821.98,Fiji,"White,Red",TRUE,1/23/2024 13:44,5/10/2025 18:22
+114,Honda,Civic,2008,Hybrid,Manual,Hatchback,1209,124,20.12,6,35568.05,Svalbard & Jan Mayen Islands,"White,Blue,Green",TRUE,6/9/2023 23:15,8/5/2023 6:46
+115,Toyota,RAV4,2014,Diesel,Automatic,Sedan,1328,425,12.47,4,108126.39,Korea,"Silver,Red",FALSE,1/19/2025 3:50,2/11/2025 18:58
+116,Tesla,Model X,2013,Hybrid,Manual,Sedan,4506,226,21.03,4,90691.3,Samoa,"Black,Gray",FALSE,8/21/2021 15:48,6/17/2024 22:55
+117,Maruti,Vitara Brezza,2023,Petrol,Automatic,Hatchback,2247,134,20.85,2,130725.55,Guam,"Silver,White",TRUE,10/8/2022 7:26,5/9/2023 16:12
+118,Hyundai,Elantra,2009,Electric,Manual,Coupe,3218,484,12.58,7,97011.36,Saint Lucia,"Gray,Black,Silver",TRUE,3/2/2022 0:06,5/27/2023 3:48
+119,Honda,CR-V,2019,Diesel,Manual,Sedan,3617,316,27.94,2,123789.15,Algeria,"Green,Black,White",FALSE,7/5/2023 4:08,9/10/2024 12:13
+120,Maruti,Vitara Brezza,2006,Electric,Automatic,SUV,4548,289,27.39,6,58877.79,Malta,"Blue,Black",FALSE,4/8/2025 5:28,4/9/2025 15:35
+121,Hyundai,Sonata,2023,Petrol,Manual,Coupe,2155,101,33.19,5,71591.2,Moldova,"Red,Silver",FALSE,3/30/2025 9:53,5/10/2025 19:41
+122,Ford,Focus,2005,Diesel,Manual,Hatchback,1325,100,7.84,5,112413.49,Ukraine,"Green,White,Black",TRUE,3/1/2021 21:53,6/22/2022 20:24
+123,Toyota,Highlander,2015,Petrol,Automatic,Coupe,3735,219,8.89,2,102526.55,Taiwan,"Blue,Black,White",FALSE,12/5/2024 1:30,3/12/2025 0:05
+124,Honda,Civic,2019,Diesel,Automatic,Sedan,1887,490,24.61,7,16300.15,Qatar,"Blue,Gray,Red,Black",TRUE,2/20/2020 2:57,2/4/2022 14:16
+125,Toyota,Camry,2015,Hybrid,Automatic,SUV,3089,248,24.99,4,70005.78,Austria,"White,Black,Red,Silver",FALSE,1/3/2025 2:00,5/23/2025 5:43
+126,Tesla,Model X,2023,Petrol,Automatic,SUV,3773,333,7.1,2,54550.78,Cayman Islands,"Gray,Blue,White,Green",TRUE,9/15/2024 22:52,10/13/2024 11:42
+127,Hyundai,Tucson,2008,Diesel,Manual,Coupe,3137,197,25.41,5,66520.67,Azerbaijan,"White,Blue,Red,Black",FALSE,2/25/2024 21:11,1/17/2025 2:07
+128,Hyundai,Elantra,2009,Petrol,Manual,Hatchback,1901,189,30.64,6,133809.51,Morocco,"Gray,White",TRUE,7/15/2021 0:27,6/11/2024 18:47
+129,Maruti,Vitara Brezza,2023,Diesel,Manual,Coupe,4087,89,20.63,2,119698.14,Trinidad and Tobago,"Green,Black,Blue,Gray",TRUE,4/21/2025 19:26,5/14/2025 2:00
+130,BMW,5 Series,2006,Diesel,Manual,SUV,1817,498,32.93,7,25149.61,Mauritania,"Silver,Gray",TRUE,1/8/2025 3:12,4/12/2025 6:29
+131,BMW,5 Series,2022,Hybrid,Manual,SUV,2874,175,7.19,4,44487.18,Grenada,"Red,White",FALSE,11/18/2022 19:35,11/14/2023 11:33
+132,Toyota,RAV4,2005,Petrol,Automatic,Sedan,3568,466,14.21,2,100665.17,Martinique,"Gray,Silver,Black,Red",TRUE,6/4/2024 0:06,9/4/2024 5:25
+133,BMW,5 Series,2023,Hybrid,Manual,Hatchback,3457,248,12.2,7,30088.89,Moldova,"Red,Silver,Green,Blue",FALSE,5/17/2023 22:37,4/29/2025 0:17
+134,Ford,Fusion,2016,Electric,Automatic,Coupe,2432,479,8.89,6,131504.12,Montserrat,"Red,Gray,Blue,White",FALSE,2/27/2023 18:23,8/5/2023 10:27
+135,Toyota,Highlander,2006,Electric,Automatic,Coupe,3358,470,26.84,4,16058.88,Lesotho,"Blue,Red,Silver",TRUE,2/23/2020 9:37,2/18/2024 22:13
+136,Toyota,Corolla,2019,Electric,Automatic,SUV,1914,207,9.78,7,147402.24,Guadeloupe,"Green,Blue",TRUE,1/8/2020 8:41,9/10/2020 19:20
+137,Honda,Accord,2024,Hybrid,Automatic,SUV,3737,319,21.64,5,83113.62,United Arab Emirates,"White,Red",FALSE,5/4/2022 5:38,11/1/2024 8:27
+138,Hyundai,Santa Fe,2014,Electric,Manual,SUV,3952,311,7.82,6,71950.57,Togo,"Red,Black,White,Silver",TRUE,7/28/2021 9:04,5/7/2022 16:29
+139,BMW,X3,2014,Petrol,Automatic,SUV,3665,460,29.38,6,102961.64,Norfolk Island,"Black,Blue",FALSE,1/31/2024 12:52,5/11/2025 6:17
+140,Tesla,Model X,2019,Diesel,Manual,Hatchback,4914,306,34.57,2,30849.1,Austria,"White,Red,Blue",TRUE,7/24/2023 4:19,8/1/2024 10:08
+141,Tesla,Model 3,2021,Electric,Automatic,Coupe,1465,470,7.83,7,11300.15,Equatorial Guinea,"Black,Silver",FALSE,2/21/2022 11:25,9/9/2022 15:44
+142,Tesla,Model S,2023,Electric,Manual,SUV,2693,236,17.63,5,27545.68,Afghanistan,"Silver,Green",FALSE,1/8/2025 3:58,2/4/2025 18:36
+143,Hyundai,Sonata,2012,Electric,Manual,Sedan,4132,376,31.26,5,115985.6,Zambia,"Red,Silver",FALSE,12/1/2022 6:17,2/7/2025 20:19
+144,Ford,Fusion,2021,Diesel,Manual,SUV,4739,426,14.26,7,51257.72,Australia,"Gray,Green,Silver",FALSE,3/29/2025 20:14,4/5/2025 9:04
+145,Hyundai,Elantra,2010,Petrol,Manual,Sedan,3261,228,27.82,5,91168.22,Tunisia,"Silver,Red,Black",FALSE,9/22/2021 20:15,5/23/2025 20:34
+146,Ford,Escape,2014,Diesel,Manual,Coupe,4235,136,18.32,5,12404.56,Kuwait,"Black,White,Gray",FALSE,3/1/2020 1:47,2/3/2024 14:10
+147,BMW,X3,2009,Diesel,Automatic,Coupe,3695,375,31.78,6,30092.93,Greenland,"Gray,Red,Green,Silver",TRUE,10/24/2020 20:35,7/8/2024 0:33
+148,Maruti,Swift,2024,Electric,Manual,SUV,1966,396,9.86,5,65139.16,Mongolia,"Silver,Blue",TRUE,2/12/2021 12:02,12/28/2023 19:53
+149,Ford,Fusion,2016,Electric,Automatic,Hatchback,1892,146,28,2,109531.42,Guernsey,"Blue,Gray",FALSE,11/18/2021 9:52,3/17/2025 10:41
+150,BMW,X3,2015,Hybrid,Manual,Hatchback,863,489,21.45,4,130030.85,Montserrat,"Black,Blue,Gray",FALSE,4/19/2024 1:34,5/9/2024 4:03
+151,Honda,Accord,2020,Diesel,Automatic,Sedan,1189,350,19.11,4,32457.06,Uzbekistan,"Black,Green,Gray,White",TRUE,4/10/2023 1:14,4/11/2024 0:10
+152,Honda,Civic,2023,Electric,Manual,Hatchback,4867,385,16.8,5,36820.7,Saint Lucia,"Gray,Blue,Red,Green",TRUE,1/18/2024 9:59,4/27/2025 15:07
+153,BMW,3 Series,2007,Electric,Manual,SUV,3975,99,24.44,5,21846.6,Wallis and Futuna,"Silver,Blue",FALSE,10/22/2023 23:43,5/27/2024 20:30
+154,Ford,Escape,2011,Diesel,Manual,Hatchback,2506,112,24.63,7,145945.3,Kazakhstan,"Red,Silver",TRUE,4/22/2022 15:59,5/1/2023 18:08
+155,BMW,X3,2008,Diesel,Automatic,Hatchback,1441,414,33.88,4,43638.47,Timor-Leste,"Blue,Black,Silver,White",TRUE,2/25/2025 10:51,4/2/2025 21:36
+156,Maruti,Swift,2017,Hybrid,Manual,Sedan,2107,405,6.34,6,99533.56,French Polynesia,"Red,White",FALSE,11/14/2022 14:20,5/27/2024 3:14
+157,Toyota,Highlander,2006,Petrol,Manual,Coupe,2221,301,28.82,4,115515.03,Cocos (Keeling) Islands,"Blue,White,Silver",TRUE,2/14/2020 3:06,7/15/2020 0:46
+158,Ford,Focus,2024,Diesel,Manual,SUV,2724,316,20.91,4,34313.49,Somalia,"Silver,Gray",TRUE,4/16/2023 4:04,6/26/2024 18:21
+159,Maruti,Vitara Brezza,2020,Hybrid,Automatic,SUV,1131,209,27.95,4,128826.79,Palestinian Territory,"White,Gray",TRUE,4/19/2022 14:11,2/1/2023 1:53
+160,Toyota,Highlander,2013,Hybrid,Automatic,Coupe,3073,211,21.17,2,126176.43,Jersey,"Black,White,Silver,Red",FALSE,8/18/2022 17:25,5/25/2023 1:08
+161,Hyundai,Santa Fe,2010,Diesel,Manual,Sedan,1118,350,27.29,4,45226.63,Greece,"Green,Blue",TRUE,12/30/2021 11:23,8/27/2022 0:27
+162,Toyota,RAV4,2008,Diesel,Automatic,SUV,924,70,12.17,7,67229.17,France,"White,Blue",FALSE,5/15/2025 9:55,5/18/2025 21:46
+163,Hyundai,Santa Fe,2021,Electric,Automatic,Hatchback,1447,475,15.98,5,15074.56,Mozambique,"White,Silver",TRUE,4/30/2024 8:26,10/2/2024 8:18
+164,Honda,Accord,2024,Petrol,Manual,Coupe,2026,310,17.2,6,71345.36,Greece,"White,Black,Red,Silver",TRUE,2/20/2023 22:23,4/14/2023 2:45
+165,BMW,X3,2005,Hybrid,Automatic,Sedan,2509,294,16.05,5,83357.7,Mauritius,"Green,White,Black,Gray",FALSE,2/25/2022 6:36,2/19/2023 6:22
+166,Hyundai,Elantra,2020,Hybrid,Automatic,Hatchback,4148,472,13.22,4,52690.39,Vanuatu,"Silver,Gray",TRUE,7/9/2021 0:32,8/28/2022 1:20
+167,Ford,Explorer,2017,Hybrid,Manual,SUV,2318,245,24.18,5,109402.71,Singapore,"Red,Blue",TRUE,6/2/2022 14:47,11/18/2024 4:11
+168,Honda,Civic,2008,Electric,Manual,Coupe,1901,133,16.4,7,92501.48,Heard Island and McDonald Islands,"White,Green,Blue",FALSE,3/16/2024 16:01,12/10/2024 17:33
+169,Maruti,Swift,2009,Petrol,Manual,Hatchback,3425,375,12.85,2,16856.04,Taiwan,"Black,Blue",TRUE,9/26/2022 15:05,3/7/2025 4:13
+170,BMW,X5,2015,Electric,Manual,Sedan,4374,257,12.26,2,116036.93,Benin,"Black,Gray,Green",TRUE,3/14/2020 10:18,9/25/2023 20:06
+171,Tesla,Model Y,2017,Petrol,Manual,SUV,3872,92,22.86,5,16743.16,Central African Republic,"Black,Gray",FALSE,3/9/2023 1:48,11/3/2023 9:04
+172,Tesla,Model S,2010,Diesel,Automatic,SUV,4844,280,31.32,2,103265.3,Anguilla,"White,Red",FALSE,5/1/2024 0:07,2/27/2025 15:34
+173,BMW,X3,2019,Diesel,Manual,SUV,2103,431,29.3,5,101073.41,Saint Vincent and the Grenadines,"Red,Green,Blue",FALSE,11/27/2022 15:08,4/28/2023 14:11
+174,Ford,Escape,2013,Diesel,Automatic,Sedan,2881,359,24.79,7,50452.46,Vietnam,"Silver,White,Green",TRUE,11/24/2023 19:30,1/2/2024 20:44
+175,BMW,5 Series,2013,Petrol,Automatic,Sedan,2160,477,5.79,5,111091.95,Japan,"Red,Blue,Black",FALSE,8/12/2020 19:11,5/10/2022 16:46
+176,Hyundai,Sonata,2007,Electric,Automatic,Hatchback,4480,266,33.32,7,113531.76,Venezuela,"Silver,Blue,Gray",FALSE,9/9/2021 2:44,7/26/2024 2:35
+177,BMW,X3,2022,Hybrid,Manual,Hatchback,3966,116,29.39,5,106463.2,Azerbaijan,"White,Blue,Silver",FALSE,4/11/2022 8:01,4/21/2024 13:58
+178,Hyundai,Santa Fe,2005,Diesel,Automatic,Hatchback,2639,253,14.06,6,142956.66,Samoa,"Red,Black,Green,White",TRUE,10/13/2020 16:14,4/7/2025 9:04
+179,Ford,Focus,2020,Diesel,Automatic,Hatchback,2722,68,34.27,6,102406.93,Saint Barthelemy,"Silver,Red,White,Black",TRUE,10/5/2023 23:58,10/26/2024 8:34
+180,BMW,5 Series,2005,Diesel,Automatic,SUV,4213,236,5.2,5,17115.46,Tunisia,"Black,Blue,White,Red",TRUE,5/19/2023 6:24,3/14/2025 18:45
+181,Hyundai,Elantra,2022,Electric,Manual,SUV,3332,340,6.73,4,22087.99,Australia,"Gray,White,Silver",FALSE,7/17/2020 1:54,3/17/2025 8:52
+182,Tesla,Model X,2009,Hybrid,Automatic,Coupe,4894,233,22.46,7,120391.8,Ethiopia,"Green,Red,Silver,Black",FALSE,9/6/2024 23:44,1/17/2025 12:50
+183,Ford,Escape,2006,Petrol,Automatic,Sedan,1714,159,8.28,4,115854.89,United States of America,"Green,Blue",FALSE,6/29/2024 1:11,1/25/2025 1:36
+184,Hyundai,Tucson,2020,Diesel,Automatic,Coupe,4400,98,9.27,4,19880.03,Georgia,"Green,Red,Silver",FALSE,9/23/2024 3:25,10/28/2024 20:24
+185,Maruti,Swift,2012,Diesel,Automatic,Hatchback,3087,93,32.01,6,120927.88,Slovakia (Slovak Republic),"Red,Blue,Gray",TRUE,2/11/2020 10:56,10/22/2023 18:02
+186,Tesla,Model S,2006,Petrol,Automatic,Coupe,1422,136,9.72,7,119773.59,Canada,"Blue,Green,Red",FALSE,3/6/2025 12:07,4/28/2025 11:16
+187,Toyota,RAV4,2018,Petrol,Manual,SUV,3374,369,27.57,6,15065.57,Holy See (Vatican City State),"Black,Silver",FALSE,5/23/2024 19:07,1/3/2025 12:36
+188,Toyota,Corolla,2013,Petrol,Automatic,Sedan,1125,396,8.78,7,69851.51,Svalbard & Jan Mayen Islands,"Green,Silver,White,Black",FALSE,11/27/2022 14:52,8/30/2024 23:08
+189,Ford,Fusion,2016,Diesel,Automatic,Coupe,1883,384,9.11,7,47935.51,Kyrgyz Republic,"Blue,White",TRUE,6/3/2024 13:01,12/1/2024 19:24
+190,Tesla,Model X,2024,Diesel,Manual,Sedan,1524,245,34.92,5,139089.95,United States Minor Outlying Islands,"Blue,White,Green",FALSE,1/19/2020 17:19,4/26/2021 19:22
+191,Honda,Pilot,2009,Petrol,Automatic,Coupe,3144,452,30.53,6,86040.82,Togo,"Blue,Silver,White,Black",FALSE,12/12/2022 15:14,4/29/2024 19:23
+192,Maruti,Baleno,2019,Petrol,Manual,SUV,3566,159,23.08,5,97278.08,Suriname,"Red,Gray,Blue",TRUE,3/12/2023 21:48,10/1/2024 18:25
+193,Toyota,Camry,2021,Hybrid,Automatic,SUV,3165,227,34.96,4,141671.55,Mayotte,"Red,Blue",TRUE,8/30/2020 11:14,10/24/2022 17:34
+194,Maruti,Vitara Brezza,2023,Electric,Automatic,Hatchback,4076,97,20.08,2,132110.22,Gibraltar,"Black,Gray,Silver",FALSE,4/2/2025 20:44,4/19/2025 3:33
+195,Maruti,Swift,2010,Petrol,Automatic,Hatchback,1271,440,6.94,5,125529.93,United Arab Emirates,"Green,White",TRUE,4/29/2024 21:11,6/5/2024 4:50
+196,Honda,Accord,2023,Diesel,Manual,Sedan,979,438,29.17,5,64206.67,Azerbaijan,"Blue,Red,Black",TRUE,5/22/2020 20:31,5/8/2021 6:16
+197,Maruti,Swift,2006,Hybrid,Manual,Hatchback,2954,459,18.76,5,107457.01,Moldova,"Gray,Red,Silver",TRUE,11/27/2023 13:26,2/14/2024 15:29
+198,Hyundai,Sonata,2010,Hybrid,Manual,SUV,3239,362,15.3,7,8240.41,Lao People's Democratic Republic,"Green,Black,Gray",TRUE,2/9/2021 19:48,8/3/2021 1:30
+199,Tesla,Model 3,2005,Hybrid,Manual,Hatchback,4993,329,29.13,7,131234.67,China,"Black,White,Green",FALSE,5/4/2023 6:22,7/15/2023 14:35
+200,Hyundai,Elantra,2011,Hybrid,Manual,Sedan,1600,316,16.02,7,60587.33,Costa Rica,"Red,Green,Black,Blue",FALSE,7/28/2020 16:49,9/12/2020 9:46
+201,Toyota,Highlander,2015,Electric,Manual,SUV,3915,111,27.64,7,47692.09,Rwanda,"Silver,Red",FALSE,3/14/2025 13:24,5/23/2025 3:24
+202,Maruti,Baleno,2021,Hybrid,Automatic,Hatchback,1783,181,30.9,5,116499.57,Luxembourg,"Red,White,Silver",FALSE,8/5/2023 10:53,8/20/2023 2:23
+203,Honda,Accord,2014,Electric,Manual,Hatchback,4392,316,16.33,2,74933.42,Madagascar,"Green,Red,Gray",TRUE,10/24/2021 19:10,6/13/2023 9:51
+204,Toyota,Camry,2007,Diesel,Manual,SUV,3583,255,22.54,7,14443.57,Bhutan,"Gray,Blue,White,Silver",TRUE,12/4/2022 5:24,2/1/2024 19:01
+205,Tesla,Model Y,2023,Petrol,Automatic,SUV,1667,395,18.13,2,60181.58,Gambia,"Green,Gray,Black,Silver",FALSE,4/3/2023 19:28,2/26/2024 4:16
+206,BMW,X5,2016,Petrol,Manual,SUV,936,438,7.66,2,18939.88,Guam,"Gray,Blue,Red,Green",TRUE,6/8/2023 12:00,3/27/2025 6:35
+207,Toyota,RAV4,2007,Hybrid,Automatic,Hatchback,4323,291,15.03,4,124074.5,Haiti,"Red,Green",FALSE,4/8/2020 15:36,9/30/2023 9:00
+208,Tesla,Model 3,2021,Diesel,Manual,SUV,4670,316,10.26,7,87359.57,French Guiana,"Green,Red",TRUE,12/20/2024 14:03,3/25/2025 14:03
+209,Hyundai,Santa Fe,2024,Diesel,Manual,Coupe,4406,91,23.99,6,133296.08,Bangladesh,"Green,Black,Silver,White",TRUE,12/28/2022 14:36,4/20/2023 1:41
+210,Honda,Civic,2007,Hybrid,Automatic,Coupe,1397,316,16.26,7,34971.48,Angola,"White,Red",FALSE,11/3/2022 20:40,11/10/2022 23:27
+211,Hyundai,Elantra,2013,Diesel,Manual,Sedan,4810,321,24.1,7,57659.68,Japan,"Silver,Black,Green",FALSE,3/6/2023 2:22,8/27/2024 20:11
+212,Honda,Accord,2019,Petrol,Automatic,Sedan,3162,170,13.36,7,90803.01,Niger,"Red,Black,Blue,Silver",FALSE,5/9/2021 23:49,4/14/2023 17:56
+213,Maruti,Baleno,2023,Hybrid,Automatic,Hatchback,1117,426,16.65,7,26390.55,Spain,"Green,Blue",FALSE,9/26/2024 16:48,5/18/2025 20:35
+214,Toyota,Highlander,2013,Electric,Manual,SUV,1197,367,6.72,6,114921.88,Cook Islands,"Gray,Blue,Black,White",FALSE,6/24/2023 17:20,10/17/2023 1:59
+215,Maruti,Swift,2012,Hybrid,Automatic,Hatchback,1717,219,30.67,4,24050.5,Lebanon,"Blue,Silver,Gray,Green",FALSE,12/27/2022 6:49,11/22/2023 15:53
+216,Tesla,Model Y,2009,Hybrid,Automatic,Sedan,1431,398,33.27,7,33496.78,Saint Martin,"Green,Red",FALSE,8/19/2024 2:41,3/4/2025 19:15
+217,Tesla,Model S,2016,Electric,Manual,Hatchback,1761,298,9.97,7,5660.06,Moldova,"Red,Silver",TRUE,1/28/2025 21:54,4/29/2025 6:22
+218,BMW,5 Series,2024,Electric,Automatic,Coupe,1008,261,31.75,6,100420.76,Namibia,"Gray,Silver,White",TRUE,12/14/2023 4:15,3/9/2024 10:40
+219,Maruti,Swift,2010,Electric,Automatic,Coupe,4772,132,11.29,5,122325.09,Barbados,"Silver,Blue",TRUE,9/5/2023 16:30,8/3/2024 0:24
+220,Hyundai,Santa Fe,2024,Hybrid,Manual,Hatchback,1240,434,16.95,6,103685.77,Botswana,"Silver,Gray",FALSE,1/2/2022 23:46,11/22/2022 17:47
+221,BMW,3 Series,2005,Electric,Automatic,SUV,3028,287,12.65,2,116250.66,Guinea-Bissau,"Silver,Red,Green",FALSE,7/30/2020 23:36,4/26/2022 14:07
+222,Ford,Explorer,2020,Diesel,Automatic,SUV,4594,411,27.18,6,143688.23,Korea,"Red,White",FALSE,11/21/2022 20:18,1/12/2024 1:08
+223,Hyundai,Santa Fe,2017,Diesel,Manual,SUV,1306,434,15.39,5,110102.8,Kenya,"Blue,White,Red,Black",FALSE,3/25/2021 14:15,10/11/2024 11:00
+224,Hyundai,Sonata,2024,Hybrid,Automatic,SUV,1211,138,34.82,7,133097.04,Uganda,"Black,Silver,Blue,Red",FALSE,9/25/2023 8:30,4/26/2025 0:56
+225,Tesla,Model 3,2011,Hybrid,Manual,Coupe,1115,296,24.41,4,13314.13,Norway,"Green,White,Gray",FALSE,4/18/2025 1:08,4/19/2025 15:18
+226,BMW,5 Series,2024,Diesel,Automatic,Sedan,3184,341,33.53,4,85414.45,Togo,"Gray,Black,Red",TRUE,1/4/2020 9:50,4/7/2025 21:55
+227,Maruti,Swift,2017,Petrol,Automatic,Coupe,1025,146,11.62,4,42594.4,Cambodia,"Gray,Black",FALSE,11/5/2022 3:49,7/23/2023 7:59
+228,Tesla,Model 3,2017,Diesel,Automatic,Hatchback,3180,319,10.79,2,122380.24,Switzerland,"Green,Red",TRUE,3/13/2023 4:11,1/10/2024 11:52
+229,Honda,Accord,2008,Electric,Automatic,Coupe,4647,423,11.85,4,119504.91,Zimbabwe,"Red,Blue",TRUE,11/23/2020 22:35,5/4/2023 2:37
+230,Ford,Escape,2015,Electric,Manual,SUV,2754,443,13.4,5,27325.16,Liberia,"Green,Blue",FALSE,5/24/2021 23:53,2/10/2022 20:52
+231,Hyundai,Tucson,2016,Electric,Manual,SUV,4427,93,28.05,5,112211.79,Palau,"Red,Green",TRUE,9/18/2020 14:38,9/22/2024 13:46
+232,Honda,Civic,2021,Petrol,Automatic,SUV,3969,458,10.26,4,131830.67,French Southern Territories,"Silver,Gray,White",FALSE,12/28/2020 14:06,7/10/2024 23:34
+233,Ford,Explorer,2018,Diesel,Manual,Sedan,1909,435,13.56,4,14248.53,Bhutan,"Red,Black,White",TRUE,8/15/2024 18:09,5/7/2025 18:37
+234,Honda,Accord,2023,Electric,Automatic,Hatchback,4771,463,18.88,7,94914.4,Anguilla,"Black,Red",TRUE,10/12/2023 21:45,9/22/2024 20:41
+235,BMW,3 Series,2024,Petrol,Manual,Sedan,3651,487,30.62,6,76702.31,Greece,"Green,Gray,Black,Silver",FALSE,6/16/2024 18:25,2/10/2025 1:05
+236,Hyundai,Sonata,2019,Diesel,Automatic,SUV,3579,370,12.25,5,123171.35,Greenland,"Red,Green,Silver",FALSE,5/24/2022 18:05,2/10/2023 8:57
+237,Ford,Explorer,2014,Electric,Manual,Coupe,3762,419,32.62,4,44010.54,Cambodia,"White,Black,Blue",TRUE,6/5/2021 21:00,4/15/2024 10:57
+238,Hyundai,Elantra,2020,Electric,Automatic,Sedan,1125,67,18.72,5,12072.42,Bermuda,"Silver,Red,Green,Blue",TRUE,3/23/2022 0:35,7/27/2024 10:19
+239,Maruti,Baleno,2019,Diesel,Manual,Coupe,4812,169,17.68,7,77163.86,Micronesia,"White,Black,Blue",FALSE,8/11/2020 3:44,3/10/2023 17:46
+240,Toyota,Corolla,2017,Petrol,Manual,SUV,3062,161,15.75,7,78538.81,Portugal,"Blue,Green,Red,White",FALSE,12/30/2023 7:53,5/2/2025 1:39
+241,Hyundai,Tucson,2021,Electric,Manual,SUV,939,490,22.2,6,95373.17,Tunisia,"Silver,Green,White,Red",FALSE,11/25/2024 23:00,1/8/2025 1:02
+242,Hyundai,Elantra,2021,Diesel,Manual,SUV,4487,463,28.51,6,92342.2,Korea,"White,Gray,Green",FALSE,3/27/2021 5:53,3/27/2023 5:43
+243,Toyota,RAV4,2024,Diesel,Automatic,Coupe,4698,202,33.23,2,126221.61,Jordan,"White,Green",TRUE,11/2/2020 16:39,5/6/2025 20:54
+244,BMW,X5,2013,Petrol,Automatic,Hatchback,2719,176,8.45,7,147216.92,Croatia,"Black,Red,White,Blue",TRUE,3/6/2020 22:30,12/22/2024 23:14
+245,Toyota,RAV4,2016,Diesel,Manual,Sedan,3945,238,15.95,2,102423.6,Bosnia and Herzegovina,"Green,Gray,Blue",FALSE,1/29/2025 9:13,2/21/2025 5:35
+246,Toyota,Highlander,2019,Diesel,Automatic,Coupe,1694,476,32.05,6,43020.7,Svalbard & Jan Mayen Islands,"White,Green",TRUE,12/8/2023 13:22,12/14/2024 19:23
+247,Toyota,Camry,2010,Petrol,Manual,Sedan,2604,328,21.61,5,18216.74,Central African Republic,"Black,Blue",TRUE,8/23/2023 8:19,1/14/2024 14:46
+248,Ford,Fusion,2023,Hybrid,Manual,Coupe,2310,400,6.87,4,55733.42,Palestinian Territory,"White,Blue,Green,Red",FALSE,1/8/2021 17:42,12/6/2024 12:47
+249,Hyundai,Tucson,2010,Electric,Automatic,Sedan,3766,161,5.26,6,87253.72,Equatorial Guinea,"Blue,Red,Black",TRUE,7/19/2021 20:31,8/6/2022 3:52
+250,BMW,3 Series,2008,Petrol,Manual,SUV,2048,370,17.43,4,118082.24,Turks and Caicos Islands,"Black,Silver",TRUE,7/8/2023 16:58,5/21/2024 13:42
+251,Hyundai,Elantra,2024,Petrol,Automatic,Coupe,1223,374,34.39,4,53488.03,Suriname,"Black,Red",FALSE,8/2/2022 13:49,1/2/2024 21:08
+252,Tesla,Model X,2013,Petrol,Automatic,Sedan,1813,259,10.34,2,110398.53,Jamaica,"Green,Black",FALSE,8/22/2021 6:09,6/3/2023 14:33
+253,Maruti,Baleno,2009,Petrol,Manual,Hatchback,4644,443,30.97,6,97703.36,Aruba,"Black,Blue,Silver",TRUE,1/16/2022 18:39,5/30/2022 14:54
+254,Maruti,Vitara Brezza,2008,Diesel,Manual,SUV,4869,319,7.81,7,54645.1,Haiti,"Blue,Black,White,Red",TRUE,1/13/2024 2:24,5/8/2024 21:00
+255,Hyundai,Elantra,2011,Diesel,Automatic,Hatchback,1536,239,30.54,2,118949.38,Albania,"Red,Green",TRUE,6/2/2020 13:29,9/26/2021 9:09
+256,Hyundai,Santa Fe,2006,Petrol,Automatic,SUV,4417,385,20.26,4,137091.52,Armenia,"Blue,Gray",FALSE,1/15/2025 7:41,5/12/2025 20:08
+257,Honda,CR-V,2016,Diesel,Manual,Coupe,3628,336,10.07,6,72481.83,Vietnam,"Green,Gray,Blue",FALSE,7/27/2020 18:50,11/6/2024 9:12
+258,Maruti,Swift,2005,Electric,Manual,SUV,3412,500,29.65,5,21378.25,Lebanon,"Blue,Red,Silver,Gray",FALSE,1/18/2024 11:12,3/1/2024 21:44
+259,BMW,X5,2016,Hybrid,Manual,Hatchback,4278,108,33.9,5,48740.14,Belize,"Silver,White,Blue,Green",FALSE,6/2/2020 3:39,8/17/2023 16:44
+260,BMW,X5,2007,Diesel,Automatic,SUV,4970,360,22.21,2,29303.34,Bangladesh,"Red,Green,Blue,Gray",FALSE,10/10/2021 3:54,3/8/2023 16:30
+261,Maruti,Vitara Brezza,2023,Electric,Manual,Hatchback,2748,300,13.57,7,93441.36,Uganda,"White,Green,Red,Black",TRUE,10/24/2022 23:49,1/27/2025 18:49
+262,Toyota,Highlander,2010,Hybrid,Manual,Coupe,1746,141,9.21,5,139279.65,Congo,"Red,Silver,White,Green",TRUE,5/28/2024 6:09,10/17/2024 6:09
+263,BMW,X3,2009,Electric,Automatic,Hatchback,4740,184,7.94,4,20052.91,Cook Islands,"Red,Green,Black,Blue",FALSE,12/21/2024 1:52,2/27/2025 20:51
+264,Tesla,Model 3,2013,Diesel,Automatic,SUV,3485,202,16.76,2,122298.3,Samoa,"Blue,White,Green,Gray",TRUE,9/12/2021 16:58,5/6/2023 20:27
+265,Honda,Accord,2007,Petrol,Manual,Sedan,2950,362,5.85,5,100446.42,Greenland,"Silver,Black,Red",FALSE,11/29/2020 5:21,12/12/2020 19:04
+266,Honda,Pilot,2023,Diesel,Manual,SUV,4819,250,27.69,5,66360.46,Saint Pierre and Miquelon,"Red,Black,Gray,Silver",FALSE,2/12/2024 13:41,3/15/2024 16:55
+267,Tesla,Model 3,2022,Hybrid,Automatic,Hatchback,4911,201,22.12,5,88826.01,India,"Black,Green,White",TRUE,3/24/2022 0:17,11/27/2022 1:10
+268,Hyundai,Sonata,2019,Petrol,Manual,Sedan,2682,245,16.33,2,86279.91,Suriname,"White,Blue,Red",FALSE,6/16/2023 22:51,8/11/2024 9:59
+269,Tesla,Model Y,2012,Hybrid,Manual,Sedan,1892,389,20.31,5,132242.67,Romania,"White,Blue",FALSE,3/28/2021 9:06,7/13/2022 15:14
+270,Tesla,Model S,2007,Diesel,Automatic,SUV,1227,129,16.37,4,148639.58,Andorra,"Green,Blue,Red",TRUE,9/16/2023 8:44,1/3/2024 13:27
+271,BMW,3 Series,2017,Petrol,Automatic,SUV,4945,380,17.89,2,119286.81,Netherlands Antilles,"Black,Red",FALSE,9/21/2020 11:58,6/20/2022 18:35
+272,Maruti,Baleno,2019,Electric,Automatic,Coupe,2556,277,11.01,6,35542.78,Pitcairn Islands,"White,Red,Silver,Blue",TRUE,4/28/2020 19:20,3/1/2021 23:05
+273,Maruti,Ertiga,2007,Petrol,Manual,Coupe,4311,116,5.8,7,97978.85,Andorra,"Red,Silver,Gray,Blue",FALSE,11/13/2021 18:15,6/7/2024 20:07
+274,Ford,Explorer,2021,Diesel,Automatic,Sedan,4566,469,22.83,7,115128.42,Turkey,"Blue,Green,Red",FALSE,1/9/2024 0:31,7/22/2024 11:19
+275,BMW,3 Series,2020,Diesel,Manual,SUV,2334,432,34.76,2,15050.98,Kiribati,"White,Blue,Gray",TRUE,2/1/2022 22:59,8/26/2024 23:46
+276,Toyota,Highlander,2010,Hybrid,Automatic,Coupe,2102,97,31.04,7,108247.13,Nicaragua,"Red,Silver,Gray,White",FALSE,1/30/2023 2:53,5/26/2024 3:36
+277,Maruti,Swift,2018,Hybrid,Manual,Hatchback,1289,153,31.38,6,117359.99,Italy,"White,Silver,Red,Green",TRUE,11/29/2023 7:53,5/12/2025 18:02
+278,Ford,Escape,2008,Electric,Automatic,Hatchback,4188,412,30.09,4,126881.87,Zimbabwe,"Black,Red,White,Silver",TRUE,12/30/2023 16:21,6/3/2024 10:30
+279,Honda,Accord,2020,Petrol,Manual,SUV,4849,275,30.57,6,93871.74,British Virgin Islands,"Black,Green,Blue,Silver",TRUE,1/13/2020 6:53,9/25/2022 13:44
+280,Maruti,Vitara Brezza,2011,Hybrid,Automatic,Sedan,2450,450,15.32,5,110289.25,Armenia,"Blue,White,Black,Silver",FALSE,6/3/2021 20:02,6/15/2023 5:10
+281,BMW,5 Series,2015,Diesel,Manual,Hatchback,4444,345,16.88,7,59950.82,Mozambique,"Green,White,Blue",FALSE,2/16/2022 4:41,8/25/2023 4:23
+282,Hyundai,Sonata,2024,Electric,Manual,Hatchback,997,498,11.2,5,49076.32,Mauritius,"Gray,Silver,White,Black",FALSE,1/10/2025 1:22,2/28/2025 8:47
+283,Tesla,Model Y,2016,Diesel,Automatic,Sedan,2048,401,11.31,5,111997.2,Liberia,"Black,Gray,Green",TRUE,1/18/2023 23:29,7/9/2023 17:42
+284,BMW,X3,2020,Hybrid,Manual,Hatchback,2505,63,15.33,6,67400.75,Australia,"Green,White,Gray,Red",TRUE,6/11/2024 2:44,2/1/2025 3:42
+285,Toyota,RAV4,2023,Electric,Automatic,Coupe,1035,318,27.49,2,30447.3,Slovenia,"White,Green,Blue,Silver",TRUE,3/5/2022 2:17,4/3/2025 13:06
+286,Honda,CR-V,2015,Diesel,Automatic,SUV,4630,406,29.95,5,21677.18,Saint Lucia,"White,Blue,Gray,Green",FALSE,6/2/2021 5:38,4/1/2024 9:44
+287,Maruti,Baleno,2019,Electric,Manual,Coupe,3241,228,32.55,4,60692.86,Venezuela,"White,Red",TRUE,2/16/2020 1:02,9/10/2022 15:58
+288,Maruti,Swift,2015,Diesel,Automatic,SUV,2821,328,28.78,5,92838.24,Kuwait,"Gray,Green,Silver,Black",TRUE,4/10/2021 16:11,12/10/2022 3:17
+289,Honda,CR-V,2018,Petrol,Manual,Sedan,3258,185,15.66,7,49761.16,Malta,"Green,Gray,White,Red",TRUE,11/11/2020 7:07,1/4/2023 11:08
+290,Toyota,Corolla,2006,Petrol,Automatic,SUV,2608,431,18.98,6,129584.61,Christmas Island,"White,Black,Silver",FALSE,5/23/2022 9:01,3/23/2024 10:20
+291,Maruti,Vitara Brezza,2010,Petrol,Automatic,SUV,2359,326,12.21,5,8441.83,United States of America,"Black,Green",FALSE,9/30/2024 6:48,5/18/2025 15:55
+292,Tesla,Model X,2024,Hybrid,Automatic,Coupe,3354,109,9.32,7,52378.26,Bhutan,"Blue,Black",TRUE,2/12/2025 23:04,4/3/2025 1:41
+293,Tesla,Model 3,2016,Hybrid,Automatic,Sedan,2697,490,23.55,2,27671.74,Yemen,"Blue,White,Gray,Red",TRUE,6/11/2024 4:29,12/13/2024 20:05
+294,BMW,X3,2013,Hybrid,Manual,Sedan,1674,123,29.82,7,136459.56,Northern Mariana Islands,"Blue,Black,Green",TRUE,3/18/2021 23:39,4/14/2023 4:03
+295,Maruti,Vitara Brezza,2017,Petrol,Automatic,SUV,3855,106,28.84,7,60819.82,Bolivia,"Green,Silver,Red",TRUE,1/4/2025 4:48,5/13/2025 19:49
+296,BMW,3 Series,2018,Diesel,Automatic,Sedan,1965,194,8.97,7,116288.11,Ghana,"Black,Gray,Silver",TRUE,3/19/2023 2:51,6/14/2023 6:46
+297,Maruti,Vitara Brezza,2018,Hybrid,Manual,Coupe,4735,387,19.2,5,85959.42,Ukraine,"Blue,Silver",FALSE,2/15/2022 18:21,1/31/2024 11:57
+298,Tesla,Model S,2007,Electric,Automatic,Coupe,2675,292,5.66,7,15534.35,Saint Martin,"Green,Silver,Red",TRUE,2/10/2025 4:33,2/12/2025 18:59
+299,Honda,Civic,2005,Diesel,Manual,Hatchback,2783,257,31.04,7,32990.1,Estonia,"Green,Silver",TRUE,8/15/2020 12:12,11/5/2020 13:35
+300,Ford,Explorer,2005,Electric,Manual,Coupe,4931,493,5.16,4,149439.83,Lesotho,"Blue,Black,Silver",TRUE,10/18/2024 16:27,5/2/2025 15:45
+301,Maruti,Ertiga,2006,Hybrid,Automatic,Sedan,4516,471,19.91,7,48622.18,Solomon Islands,"Red,White",FALSE,4/26/2025 11:59,5/11/2025 16:00
+302,Maruti,Vitara Brezza,2010,Hybrid,Automatic,SUV,3851,198,19.74,6,47901.25,Congo,"Green,White",FALSE,2/3/2024 17:17,10/1/2024 21:42
+303,Maruti,Swift,2012,Petrol,Automatic,Sedan,1052,240,23.05,6,69657.47,Armenia,"Red,Green",FALSE,3/2/2023 8:16,2/14/2025 21:05
+304,Maruti,Ertiga,2017,Electric,Manual,Hatchback,3621,172,22.34,6,5918.7,Chile,"Gray,Black",FALSE,5/11/2022 3:38,12/27/2024 1:12
+305,Honda,CR-V,2023,Diesel,Automatic,Sedan,1793,351,17.43,5,65579.04,New Caledonia,"Gray,Green",TRUE,10/3/2020 7:48,4/16/2025 21:54
+306,Honda,CR-V,2015,Hybrid,Automatic,Coupe,1958,317,21.14,7,100683,South Africa,"Green,White,Black",TRUE,9/12/2021 18:56,5/27/2024 22:13
+307,BMW,X5,2021,Petrol,Automatic,Sedan,4287,379,27.55,6,126346.36,Chile,"Blue,Black",TRUE,6/21/2024 6:13,3/22/2025 2:38
+308,Maruti,Vitara Brezza,2006,Diesel,Automatic,Hatchback,2938,216,32.65,7,141567.8,Madagascar,"Green,White,Red,Silver",TRUE,6/17/2024 17:26,10/1/2024 20:23
+309,Hyundai,Santa Fe,2022,Diesel,Manual,Coupe,3109,123,11.28,4,140548.41,Wallis and Futuna,"Red,Green,Blue",TRUE,12/2/2021 12:46,10/12/2023 18:50
+310,BMW,X3,2021,Diesel,Manual,Hatchback,4412,444,23.33,7,94024.23,Costa Rica,"White,Silver",FALSE,8/5/2024 4:04,2/5/2025 17:38
+311,BMW,X5,2017,Hybrid,Automatic,Sedan,2486,178,8.46,4,64317.88,El Salvador,"White,Gray",TRUE,8/21/2024 10:27,3/7/2025 17:09
+312,Maruti,Vitara Brezza,2019,Petrol,Automatic,Sedan,4972,395,32.32,5,91139.11,Cocos (Keeling) Islands,"Green,Silver,Black",TRUE,3/9/2020 8:17,8/13/2020 19:02
+313,BMW,5 Series,2007,Diesel,Manual,Sedan,1276,401,34.71,7,28580.6,Seychelles,"Gray,Silver,Green",FALSE,1/31/2022 22:36,11/9/2022 2:30
+314,Hyundai,Sonata,2023,Hybrid,Automatic,Sedan,1232,251,21.36,5,66234.79,Iraq,"Blue,Green,Red",TRUE,1/8/2020 3:05,3/29/2023 7:10
+315,BMW,X5,2005,Hybrid,Automatic,Sedan,3023,183,10.66,5,67220.64,Congo,"White,Red,Blue",FALSE,10/8/2020 23:39,9/14/2023 1:00
+316,Hyundai,Sonata,2021,Petrol,Manual,Sedan,1534,402,10.03,6,102941.51,Uruguay,"Silver,Black",FALSE,1/30/2025 0:22,5/11/2025 8:41
+317,Hyundai,Tucson,2009,Electric,Manual,Coupe,3101,234,26.08,7,118344.21,French Southern Territories,"Green,Silver",TRUE,8/12/2024 19:19,4/7/2025 1:54
+318,Hyundai,Sonata,2016,Hybrid,Automatic,Coupe,2185,164,7.1,7,131767.12,Wallis and Futuna,"Gray,Silver,Red",TRUE,4/30/2020 21:35,5/27/2022 14:55
+319,Ford,Focus,2013,Petrol,Manual,Coupe,1002,98,29.78,2,69987.14,Puerto Rico,"Black,Silver,White,Green",FALSE,12/1/2022 12:56,3/16/2025 3:03
+320,Honda,CR-V,2018,Hybrid,Automatic,Coupe,2721,414,26.18,5,40183.54,Barbados,"Green,Blue,Black",FALSE,12/2/2020 22:21,11/14/2023 1:05
+321,Honda,Civic,2020,Diesel,Manual,SUV,3273,316,9.81,6,31875.81,Bouvet Island (Bouvetoya),"Gray,Red",TRUE,6/30/2020 20:09,1/3/2022 20:43
+322,Ford,Fusion,2023,Diesel,Manual,Sedan,2549,418,34.21,2,70983.22,Nicaragua,"Gray,Red",FALSE,11/11/2020 9:30,2/28/2024 14:15
+323,BMW,X3,2009,Hybrid,Automatic,SUV,1406,462,31.06,6,30331.21,American Samoa,"Blue,White,Black,Red",TRUE,4/2/2020 2:54,4/29/2024 5:07
+324,BMW,X3,2020,Electric,Automatic,Coupe,4107,107,7.36,5,141686.95,Lebanon,"Green,Blue",FALSE,2/20/2020 6:22,3/22/2023 12:18
+325,Toyota,Camry,2015,Electric,Manual,Hatchback,988,154,7.89,6,32071.02,Venezuela,"White,Blue",TRUE,4/13/2025 21:59,5/17/2025 7:04
+326,Ford,Fusion,2016,Diesel,Manual,Coupe,1873,103,32.56,7,96231.27,Estonia,"Black,Gray,Green,Blue",TRUE,5/11/2021 21:42,3/29/2022 11:08
+327,Maruti,Swift,2024,Petrol,Automatic,SUV,832,500,28.03,2,67365.89,Marshall Islands,"Red,Black",FALSE,5/11/2023 13:36,8/17/2024 16:02
+328,Tesla,Model 3,2010,Hybrid,Manual,Hatchback,4763,190,19.97,6,144315.3,Zambia,"Green,Red,Silver,Black",TRUE,9/10/2022 23:54,9/11/2022 14:50
+329,Honda,Accord,2012,Electric,Manual,Sedan,2135,129,5.63,7,12415.21,New Caledonia,"Black,Green,Blue,Silver",FALSE,6/18/2022 4:47,9/8/2022 14:47
+330,Hyundai,Sonata,2010,Hybrid,Automatic,Hatchback,2852,423,22.47,7,91473.83,Tokelau,"Silver,Red,Black,Green",FALSE,1/17/2024 12:48,5/7/2024 6:21
+331,Hyundai,Elantra,2005,Diesel,Manual,SUV,2951,331,5.59,7,54558.89,Uganda,"Black,Red",TRUE,8/20/2024 4:11,3/9/2025 1:59
+332,Hyundai,Elantra,2021,Diesel,Manual,SUV,2871,291,16.59,2,9238.24,Monaco,"Silver,White,Green",TRUE,7/12/2024 11:30,10/21/2024 4:52
+333,Toyota,Highlander,2024,Petrol,Manual,Coupe,1311,269,17.91,2,97821.54,Peru,"Silver,Blue,Green,White",FALSE,6/2/2022 13:32,2/2/2023 16:31
+334,Maruti,Baleno,2010,Electric,Manual,Hatchback,1382,417,26.71,4,18173.98,Equatorial Guinea,"Green,Black,Blue,Red",FALSE,7/11/2020 3:54,1/19/2025 18:20
+335,Ford,Focus,2013,Electric,Manual,Coupe,2007,93,24.71,7,93396.95,Jordan,"Red,Gray,White",TRUE,12/21/2022 15:15,12/5/2023 13:00
+336,Toyota,RAV4,2023,Hybrid,Automatic,Sedan,4222,422,9.87,5,123916.32,Tanzania,"White,Red",TRUE,9/22/2024 5:38,5/2/2025 2:56
+337,BMW,3 Series,2009,Petrol,Automatic,Coupe,3811,72,19.31,5,72665.38,Equatorial Guinea,"Green,Silver,White,Black",TRUE,1/2/2020 10:35,5/4/2023 0:23
+338,Maruti,Swift,2009,Diesel,Manual,SUV,4432,397,19.52,5,107398.07,Cyprus,"Silver,White,Green",FALSE,7/5/2023 9:22,1/17/2025 5:13
+339,Ford,Fusion,2020,Diesel,Manual,Hatchback,4662,193,8.66,5,80839.23,New Caledonia,"White,Green",FALSE,5/19/2023 23:33,10/13/2023 23:48
+340,Toyota,RAV4,2015,Electric,Automatic,Sedan,3857,292,8.89,6,71768.71,United Arab Emirates,"White,Blue,Silver,Gray",TRUE,8/6/2023 19:00,8/5/2024 2:52
+341,Ford,Explorer,2019,Electric,Automatic,Hatchback,4321,372,22.87,5,146476.42,Philippines,"Gray,White,Black",TRUE,9/22/2021 8:24,10/17/2022 15:06
+342,Tesla,Model Y,2006,Diesel,Manual,Coupe,2213,264,24.49,5,22515.26,Austria,"Black,Green,Red,Blue",FALSE,2/18/2022 5:25,5/19/2022 21:16
+343,Hyundai,Elantra,2017,Hybrid,Automatic,SUV,2850,159,30.21,5,50375.59,Cameroon,"Gray,Red,Green,Silver",TRUE,12/4/2022 15:56,8/22/2024 1:09
+344,Toyota,Corolla,2014,Diesel,Manual,Hatchback,4312,432,15.5,2,35202.79,Angola,"Blue,Black,Red",FALSE,7/26/2021 22:21,9/20/2024 8:41
+345,Toyota,Corolla,2020,Hybrid,Manual,Sedan,4960,454,21.26,4,102131.39,Antigua and Barbuda,"White,Gray,Green,Blue",FALSE,2/14/2024 23:55,8/30/2024 14:44
+346,BMW,5 Series,2020,Electric,Manual,Coupe,873,194,8.25,6,93905.66,Guinea,"White,Silver,Red",TRUE,2/28/2020 20:58,8/26/2021 11:29
+347,Maruti,Swift,2011,Petrol,Automatic,Hatchback,4331,500,5.22,5,138338.14,Wallis and Futuna,"Blue,Gray,Black,Silver",FALSE,8/11/2020 22:30,3/21/2023 20:30
+348,Tesla,Model Y,2019,Hybrid,Automatic,SUV,3623,120,18.88,2,131871.89,Belarus,"Silver,Black,White",FALSE,7/5/2022 22:59,7/2/2024 22:11
+349,Maruti,Baleno,2013,Diesel,Manual,Hatchback,1828,239,29.01,2,121289.35,Yemen,"Red,Blue,Silver,Green",TRUE,11/28/2022 16:33,4/24/2024 12:01
+350,BMW,5 Series,2010,Petrol,Automatic,Sedan,1042,64,31.88,7,144329.17,Tokelau,"White,Silver,Gray,Green",FALSE,9/10/2020 6:50,4/6/2022 13:33
+351,Ford,Focus,2013,Petrol,Manual,Coupe,4999,102,17.88,7,58513.26,Guinea,"Blue,White,Green,Gray",TRUE,10/13/2020 11:39,9/23/2024 1:28
+352,Toyota,Highlander,2005,Petrol,Manual,Hatchback,3332,249,19.03,6,9424.53,Croatia,"Green,Gray,Red,White",TRUE,5/2/2020 13:07,5/15/2021 1:35
+353,Maruti,Vitara Brezza,2024,Hybrid,Automatic,Sedan,3630,118,30.23,5,138401.51,Tokelau,"Black,Gray,Red,Silver",TRUE,2/5/2023 12:13,4/23/2024 10:19
+354,Honda,Pilot,2019,Electric,Manual,SUV,1579,198,9.87,6,35923.11,Chile,"White,Green,Black",FALSE,3/31/2022 0:47,5/9/2025 12:16
+355,Hyundai,Santa Fe,2005,Hybrid,Automatic,Coupe,2937,381,27.1,7,18115.74,Kazakhstan,"Gray,Red,Black",FALSE,7/5/2021 7:27,11/20/2021 16:47
+356,Hyundai,Elantra,2009,Petrol,Automatic,Hatchback,2153,454,27.09,5,61569.7,Germany,"Black,Gray,Green,Silver",FALSE,9/19/2023 0:45,1/6/2025 15:27
+357,Maruti,Vitara Brezza,2009,Diesel,Manual,Sedan,3922,207,32.09,6,51738.48,Saint Barthelemy,"Blue,Silver,Green",TRUE,11/20/2020 23:47,12/31/2021 14:53
+358,BMW,X3,2022,Diesel,Automatic,Sedan,3764,83,19.58,5,96170.66,Norway,"Gray,Green,Blue",FALSE,9/18/2020 4:50,6/8/2024 4:34
+359,Honda,Pilot,2022,Hybrid,Manual,Coupe,1664,380,21.34,2,64268.67,Georgia,"Black,Silver,Green",TRUE,6/9/2023 14:13,2/19/2024 20:58
+360,BMW,5 Series,2006,Hybrid,Manual,Sedan,2110,322,32.5,6,16055.9,Bahrain,"Gray,Blue,Red",FALSE,4/11/2025 8:04,5/23/2025 8:44
+361,Maruti,Baleno,2007,Diesel,Automatic,SUV,952,287,14.1,6,15174.4,Mauritius,"White,Gray,Green,Blue",TRUE,9/16/2022 5:37,3/7/2024 14:40
+362,Maruti,Ertiga,2021,Hybrid,Automatic,SUV,1668,276,17.48,7,16723.53,Timor-Leste,"Black,Green,Gray",TRUE,7/7/2023 18:35,10/8/2023 3:14
+363,Tesla,Model 3,2013,Petrol,Manual,SUV,4193,263,16.77,6,131801.96,Namibia,"Gray,Blue",FALSE,2/1/2021 4:50,2/14/2024 23:18
+364,BMW,X3,2007,Hybrid,Automatic,Hatchback,4101,270,27,5,10146.35,Spain,"Green,Red",TRUE,3/17/2020 9:13,6/13/2023 23:13
+365,Tesla,Model 3,2017,Electric,Manual,SUV,1189,467,7.14,4,74712.05,Eritrea,"Green,Blue,White",TRUE,10/20/2020 12:51,7/9/2021 14:20
+366,Hyundai,Santa Fe,2008,Hybrid,Automatic,SUV,1611,179,11.67,4,98607.01,Indonesia,"Blue,Black,Red,Gray",TRUE,2/6/2022 19:58,10/5/2022 8:12
+367,BMW,X5,2011,Diesel,Manual,Hatchback,2137,182,23.95,2,65017.18,Portugal,"Silver,Blue,Black,Red",TRUE,6/12/2020 14:43,7/9/2023 7:44
+368,Maruti,Swift,2013,Electric,Manual,Hatchback,4058,294,28.57,4,21487.55,Dominican Republic,"Blue,Red",TRUE,9/27/2024 1:43,11/21/2024 9:23
+369,BMW,X3,2007,Hybrid,Manual,Hatchback,3657,168,8.27,5,88704.52,Cameroon,"Green,Black,Blue",FALSE,10/3/2021 0:24,4/6/2022 1:14
+370,Toyota,RAV4,2020,Petrol,Automatic,Hatchback,1344,487,32.77,4,57390.72,Guernsey,"Black,Silver,Blue",FALSE,5/27/2024 19:32,4/30/2025 17:04
+371,Tesla,Model Y,2013,Electric,Automatic,SUV,1652,161,8.29,2,123852.41,Estonia,"Red,Silver",FALSE,1/13/2023 3:18,1/29/2024 7:34
+372,BMW,5 Series,2017,Electric,Automatic,Coupe,3145,471,18.49,5,61973.44,Ukraine,"Silver,Green,White,Blue",TRUE,1/30/2025 3:21,2/26/2025 13:56
+373,Toyota,Corolla,2023,Petrol,Automatic,Hatchback,3859,360,10.53,2,29952.78,Paraguay,"White,Gray",FALSE,10/8/2022 14:09,12/27/2022 20:27
+374,BMW,3 Series,2012,Electric,Manual,Hatchback,848,364,31.78,6,31475.61,Timor-Leste,"Black,White,Gray,Blue",TRUE,10/24/2020 2:59,8/18/2024 2:08
+375,Toyota,Corolla,2007,Electric,Manual,Sedan,1233,115,14.75,6,79479.02,Nigeria,"Red,Gray,White,Silver",TRUE,8/3/2024 11:28,2/26/2025 5:26
+376,Ford,Explorer,2008,Petrol,Manual,Coupe,2255,222,26.97,2,10002.76,Kiribati,"Blue,Silver",FALSE,12/14/2023 16:34,12/1/2024 7:10
+377,Toyota,Corolla,2012,Hybrid,Manual,Coupe,868,177,27.61,5,147375.1,Congo,"Blue,Black,Gray,Green",TRUE,1/21/2020 20:53,1/27/2024 16:05
+378,BMW,3 Series,2012,Petrol,Manual,SUV,2983,232,32.04,5,87436.93,Samoa,"Green,White,Silver",FALSE,6/3/2021 11:50,11/15/2021 11:43
+379,Ford,Explorer,2013,Diesel,Manual,Hatchback,4064,255,30.84,6,132097.52,Falkland Islands (Malvinas),"Green,White,Blue",FALSE,1/13/2021 11:43,11/4/2023 20:12
+380,Maruti,Swift,2010,Electric,Manual,Hatchback,1401,94,21.49,4,74156.33,United Kingdom,"Red,White,Silver",TRUE,9/2/2020 21:07,12/19/2021 23:22
+381,Honda,Civic,2013,Petrol,Automatic,Sedan,1074,331,13.14,5,147439.43,Antarctica (the territory South of 60 deg S),"Black,Gray",TRUE,10/20/2022 21:40,4/24/2024 1:16
+382,Honda,CR-V,2006,Diesel,Automatic,Coupe,1389,174,27.98,2,34980.43,Tajikistan,"Gray,Silver,Green",TRUE,3/24/2022 5:21,9/28/2022 16:03
+383,Maruti,Baleno,2013,Electric,Manual,SUV,3591,365,25.62,4,119637.58,Saint Barthelemy,"Gray,Blue,Green,Black",FALSE,4/28/2022 9:50,6/30/2024 5:38
+384,Toyota,Highlander,2011,Electric,Automatic,Sedan,3512,150,15.65,7,20493.49,San Marino,"White,Silver,Gray",FALSE,5/21/2025 13:32,5/23/2025 13:30
+385,Maruti,Baleno,2022,Petrol,Automatic,SUV,2862,409,8.47,5,139957.37,Mauritania,"Blue,Red",FALSE,11/24/2022 12:06,12/29/2023 14:43
+386,Honda,Civic,2017,Diesel,Automatic,SUV,2575,323,28.2,6,78953.26,Ecuador,"Silver,Gray",FALSE,5/19/2023 16:02,12/29/2023 14:49
+387,Hyundai,Santa Fe,2024,Diesel,Manual,Sedan,2812,172,11.08,4,33993.63,Nepal,"Silver,White,Gray,Red",FALSE,4/5/2024 9:55,9/21/2024 18:08
+388,Toyota,RAV4,2011,Petrol,Automatic,SUV,2452,367,18.27,4,107824.9,Yemen,"Black,White",FALSE,4/13/2024 9:34,1/26/2025 2:28
+389,Ford,Focus,2013,Petrol,Manual,Coupe,1855,254,32.95,5,31361.84,United States Minor Outlying Islands,"Blue,Black",TRUE,11/9/2021 20:01,6/24/2024 5:35
+390,Ford,Escape,2006,Petrol,Manual,Hatchback,4908,389,6.03,4,146111.11,Congo,"Red,Gray,Silver",FALSE,4/5/2021 8:10,12/17/2023 2:51
+391,Honda,Civic,2017,Diesel,Manual,Coupe,4413,463,33.08,2,114984.5,Svalbard & Jan Mayen Islands,"Gray,Red,White,Black",FALSE,2/7/2021 23:40,4/6/2021 23:15
+392,Ford,Escape,2018,Hybrid,Automatic,Sedan,2014,304,14.73,4,145699.28,Cocos (Keeling) Islands,"White,Black,Gray,Green",TRUE,11/5/2024 22:24,4/9/2025 1:34
+393,BMW,X5,2009,Electric,Automatic,Hatchback,4827,245,32.88,5,135193.92,Tonga,"Silver,Green,Black,Red",FALSE,6/3/2022 5:18,10/5/2024 15:28
+394,Ford,Explorer,2018,Diesel,Automatic,Coupe,3245,243,16.34,5,118288.51,Afghanistan,"White,Black",FALSE,5/4/2020 17:56,8/23/2024 15:10
+395,Maruti,Ertiga,2022,Electric,Automatic,Hatchback,4532,96,26.75,5,62716.05,Turks and Caicos Islands,"Red,Green",TRUE,5/4/2020 21:55,12/4/2021 22:39
+396,Toyota,RAV4,2008,Hybrid,Automatic,Sedan,4467,331,31.78,4,74550.18,Oman,"Black,White",FALSE,7/10/2021 10:12,1/9/2025 13:06
+397,BMW,3 Series,2017,Diesel,Automatic,Hatchback,1739,284,9.35,6,116786.5,Gambia,"Silver,Blue",FALSE,9/16/2023 10:47,8/27/2024 12:49
+398,Tesla,Model 3,2011,Hybrid,Manual,Sedan,4527,329,27.75,5,128865.79,Mongolia,"Black,Gray,Red",TRUE,2/3/2022 2:26,1/16/2023 4:12
+399,Honda,Civic,2014,Diesel,Manual,Coupe,902,403,5.49,4,70027.2,Namibia,"Black,Red",TRUE,10/18/2020 0:45,4/29/2023 0:53
+400,BMW,3 Series,2012,Hybrid,Manual,Sedan,1148,399,5.63,2,81382.04,Serbia,"Blue,Red,Green",TRUE,11/16/2024 21:27,2/24/2025 22:26
+401,Maruti,Swift,2011,Hybrid,Automatic,Sedan,1711,289,33.95,6,112155.03,Marshall Islands,"White,Silver,Red,Blue",TRUE,10/31/2020 13:42,10/20/2023 16:57
+402,BMW,5 Series,2013,Electric,Automatic,Coupe,4490,278,11.72,2,32235.02,Niger,"Black,Gray,Red,Blue",TRUE,11/14/2023 19:20,7/3/2024 8:33
+403,Honda,CR-V,2023,Electric,Automatic,Sedan,2485,71,16.14,2,102895.34,South Georgia and the South Sandwich Islands,"Black,Green",TRUE,10/7/2021 20:42,7/27/2023 19:15
+404,Honda,CR-V,2006,Petrol,Automatic,Coupe,2557,231,15.05,6,147065.98,Venezuela,"Black,Blue",TRUE,10/17/2023 6:30,7/25/2024 0:22
+405,Hyundai,Tucson,2013,Diesel,Automatic,Hatchback,1281,400,30.47,5,45916.8,Pakistan,"Gray,Green,Blue,Silver",TRUE,9/24/2023 3:52,7/30/2024 19:03
+406,Hyundai,Elantra,2010,Electric,Automatic,Hatchback,1717,280,15.99,2,38220.19,Saint Pierre and Miquelon,"Gray,Black",FALSE,5/29/2024 17:35,12/9/2024 18:52
+407,Tesla,Model X,2018,Diesel,Automatic,SUV,3174,123,15.32,5,84677.47,French Guiana,"Gray,Blue",FALSE,12/13/2023 23:35,3/13/2025 12:05
+408,Ford,Fusion,2023,Electric,Manual,Sedan,3385,344,7.87,2,39832.33,Mexico,"Green,Gray,Silver,Red",FALSE,4/5/2022 16:04,10/11/2022 13:34
+409,Toyota,RAV4,2011,Electric,Automatic,Coupe,808,120,29.12,4,118216.31,Malawi,"Black,Gray,White",FALSE,10/24/2023 0:19,1/2/2025 0:35
+410,Ford,Focus,2005,Diesel,Manual,Coupe,3106,159,33.89,2,53526.71,French Polynesia,"White,Silver,Green,Blue",FALSE,2/21/2023 19:52,10/20/2024 18:11
+411,Ford,Escape,2008,Diesel,Automatic,Sedan,941,108,30.33,6,99780.1,Andorra,"Black,Blue,White",TRUE,7/14/2022 0:51,2/2/2023 2:45
+412,Toyota,Highlander,2023,Electric,Manual,Hatchback,2482,239,30.28,7,45885.75,Taiwan,"Black,White,Silver,Red",TRUE,12/28/2023 8:06,4/11/2025 14:12
+413,Ford,Fusion,2022,Electric,Manual,Coupe,1858,203,9.53,2,116655.8,Uzbekistan,"Green,Black,Silver",TRUE,11/2/2022 10:10,5/11/2023 10:09
+414,Toyota,Highlander,2016,Petrol,Automatic,Sedan,1041,356,32.58,2,79266.16,Sri Lanka,"Gray,Blue",TRUE,12/23/2021 23:02,6/14/2022 16:06
+415,Maruti,Baleno,2009,Diesel,Automatic,Coupe,3880,195,33.67,4,39452.74,French Guiana,"Black,Gray",FALSE,2/5/2023 21:24,2/11/2023 12:11
+416,Toyota,Camry,2015,Electric,Automatic,Hatchback,2517,239,20.71,7,125021.59,Eritrea,"Blue,Gray,Red",FALSE,9/9/2021 21:45,3/8/2025 15:20
+417,Honda,Accord,2018,Diesel,Automatic,SUV,2221,324,30.29,6,72089.87,Jamaica,"Green,White",TRUE,6/23/2022 2:07,7/21/2024 13:35
+418,Maruti,Vitara Brezza,2016,Hybrid,Manual,Coupe,2863,120,34.66,4,116956.53,Kuwait,"Red,White,Blue,Gray",FALSE,8/23/2023 10:11,11/6/2023 7:58
+419,BMW,X5,2024,Hybrid,Manual,Sedan,1042,326,25.5,7,69677.58,Sri Lanka,"Red,Silver,Black,White",FALSE,8/11/2023 6:02,3/27/2024 22:20
+420,Ford,Explorer,2015,Petrol,Manual,SUV,1430,205,32.82,7,118984.16,Barbados,"Blue,Red",TRUE,10/7/2020 1:16,4/5/2021 0:39
+421,Honda,Pilot,2021,Electric,Manual,Hatchback,3735,335,21.24,5,51160.36,Congo,"Blue,White,Gray,Silver",FALSE,10/19/2022 14:42,11/18/2023 14:19
+422,Ford,Explorer,2015,Hybrid,Manual,Coupe,4669,324,21.55,5,123223.31,Timor-Leste,"Green,Silver,Gray",TRUE,9/2/2020 8:36,7/4/2024 23:32
+423,BMW,3 Series,2021,Petrol,Automatic,SUV,1518,221,25.01,6,26607.27,Somalia,"Blue,Red,Gray",FALSE,2/11/2020 9:16,12/25/2020 10:43
+424,Hyundai,Elantra,2018,Hybrid,Automatic,Hatchback,1791,248,19.85,5,68807.82,Singapore,"Black,Blue",FALSE,10/24/2022 3:12,3/4/2025 1:05
+425,Toyota,Corolla,2015,Hybrid,Manual,Sedan,4701,266,5.91,5,64104.59,Dominica,"Red,Blue,White,Silver",FALSE,1/16/2020 12:53,12/5/2022 2:13
+426,Tesla,Model Y,2012,Hybrid,Automatic,Coupe,4043,262,17.6,7,5849.74,Dominican Republic,"Red,Gray,Green,Silver",TRUE,6/19/2020 9:57,12/4/2022 10:11
+427,Ford,Fusion,2019,Hybrid,Automatic,Hatchback,4156,141,26.12,5,74517.89,Sierra Leone,"Blue,White,Gray,Silver",FALSE,10/29/2022 22:57,11/8/2022 2:38
+428,Ford,Escape,2012,Diesel,Automatic,Sedan,3042,351,33.2,6,43218.36,Kyrgyz Republic,"White,Silver,Blue,Gray",TRUE,11/20/2020 16:10,6/14/2023 16:31
+429,Ford,Fusion,2015,Diesel,Automatic,Sedan,1320,417,7.6,7,130577.53,Lesotho,"Silver,Blue",TRUE,3/12/2024 12:35,1/14/2025 8:01
+430,Honda,Accord,2019,Petrol,Manual,Hatchback,3000,451,32.43,7,58477.25,Brazil,"Black,Blue,White,Green",FALSE,6/22/2024 10:02,5/16/2025 20:09
+431,Maruti,Ertiga,2022,Hybrid,Automatic,Sedan,3909,495,30.41,7,92404.31,Zambia,"Blue,Green,Black",FALSE,1/28/2022 13:41,9/7/2023 13:22
+432,Hyundai,Elantra,2008,Hybrid,Automatic,SUV,3491,290,16.96,7,107313.34,Myanmar,"Silver,Gray,Blue,White",TRUE,5/30/2024 13:16,3/22/2025 20:55
+433,Ford,Fusion,2022,Electric,Automatic,Hatchback,2345,255,8.5,2,140152.14,Trinidad and Tobago,"Red,Blue,Gray",FALSE,5/14/2023 16:09,5/17/2023 9:32
+434,Toyota,RAV4,2008,Electric,Automatic,Hatchback,4648,232,19.4,2,101982.7,Korea,"White,Green",TRUE,5/11/2021 4:32,5/2/2024 20:29
+435,BMW,5 Series,2016,Diesel,Manual,Coupe,3989,359,22.25,7,145702.27,Russian Federation,"Red,Blue,Green",TRUE,12/13/2024 19:38,2/22/2025 1:37
+436,Hyundai,Santa Fe,2012,Electric,Automatic,Sedan,3681,446,7.18,4,94062.73,Sweden,"Silver,Black,Red",TRUE,5/24/2024 13:31,10/29/2024 17:32
+437,Ford,Escape,2022,Petrol,Automatic,Coupe,962,226,22.17,6,32099.33,Micronesia,"White,Red,Gray",TRUE,4/3/2021 22:25,2/1/2024 8:53
+438,Toyota,RAV4,2012,Electric,Manual,Coupe,2863,245,11.2,6,33186.59,Bermuda,"Gray,Silver,White,Red",FALSE,1/25/2025 5:27,3/7/2025 6:13
+439,Honda,Pilot,2018,Petrol,Automatic,Hatchback,4130,158,34.49,2,14364.81,Kiribati,"Gray,Silver",FALSE,11/4/2020 8:27,10/9/2021 9:17
+440,Toyota,Camry,2007,Petrol,Manual,SUV,3719,278,17.45,6,84503.73,Iran,"Blue,White,Red",FALSE,5/30/2023 0:34,2/19/2025 20:08
+441,Hyundai,Elantra,2018,Hybrid,Manual,Coupe,2442,261,10.6,2,21896.02,Saint Lucia,"Red,Black,Green",TRUE,9/29/2022 10:38,10/24/2024 23:35
+442,Honda,Accord,2024,Hybrid,Manual,Coupe,1174,73,29.33,4,59016.12,Peru,"Green,Blue",FALSE,4/16/2023 10:01,8/6/2023 11:34
+443,Ford,Explorer,2005,Hybrid,Manual,SUV,844,216,8.64,6,114485.55,Nicaragua,"Silver,Green",TRUE,4/28/2025 20:35,5/23/2025 14:18
+444,Maruti,Ertiga,2013,Electric,Manual,Sedan,1401,239,26.17,2,58640.69,Croatia,"Red,Green",TRUE,12/18/2023 8:00,7/12/2024 3:52
+445,Honda,Pilot,2015,Hybrid,Manual,Hatchback,864,439,15.51,4,59899,Zambia,"Black,White,Green",FALSE,12/24/2022 3:20,9/10/2024 13:21
+446,Hyundai,Santa Fe,2017,Diesel,Automatic,Hatchback,4557,479,27.49,6,57947.86,Honduras,"Blue,Silver,Red",TRUE,5/30/2024 0:29,8/4/2024 0:14
+447,Maruti,Baleno,2013,Diesel,Manual,Hatchback,1910,182,33.43,6,133661.88,Bangladesh,"Gray,Red",FALSE,6/8/2021 16:57,7/27/2023 10:13
+448,Maruti,Swift,2005,Electric,Manual,Hatchback,1946,322,16.18,4,40750.6,Togo,"Green,Black,White",FALSE,6/13/2024 8:43,6/23/2024 17:49
+449,Maruti,Swift,2011,Diesel,Automatic,Coupe,3351,158,27.77,7,128731.89,Iceland,"Gray,Green",TRUE,5/13/2022 5:05,2/17/2025 7:25
+450,Maruti,Vitara Brezza,2006,Electric,Automatic,Hatchback,4206,412,14.98,2,94989.27,Congo,"Gray,Silver,Green,Blue",FALSE,10/22/2022 5:02,11/16/2023 9:55
+451,Maruti,Swift,2005,Petrol,Manual,Coupe,2527,185,29.69,7,97978.39,Bosnia and Herzegovina,"Gray,Silver",TRUE,8/8/2024 16:52,11/29/2024 2:14
+452,Ford,Focus,2023,Electric,Manual,Sedan,930,269,32.99,6,135234.04,Morocco,"Gray,Black,Blue",FALSE,10/6/2022 9:12,1/16/2023 6:18
+453,Tesla,Model Y,2012,Hybrid,Automatic,Sedan,1055,267,25.68,7,130667.84,Iran,"Black,Blue,Gray",FALSE,6/22/2024 13:53,7/29/2024 19:42
+454,BMW,X3,2008,Hybrid,Manual,Hatchback,2122,444,12.8,4,40502.47,South Africa,"Red,Gray,Silver",FALSE,12/18/2024 12:24,2/2/2025 18:21
+455,Maruti,Baleno,2015,Hybrid,Manual,Hatchback,2968,77,9.82,7,7726.72,Belize,"Blue,Silver,White",FALSE,10/6/2022 8:24,4/30/2025 16:03
+456,BMW,X3,2016,Hybrid,Manual,SUV,2972,467,32.42,6,87349.48,Panama,"White,Gray,Green,Black",FALSE,3/31/2023 0:57,6/23/2024 15:28
+457,Maruti,Baleno,2007,Diesel,Manual,Coupe,1941,270,21.69,6,31433.5,South Africa,"White,Gray",FALSE,8/5/2023 18:28,4/19/2025 20:55
+458,Ford,Focus,2015,Petrol,Manual,Coupe,1877,200,23.08,5,24866.87,Nepal,"Gray,Silver,Blue",FALSE,7/19/2022 9:36,4/15/2024 17:48
+459,Honda,Accord,2006,Petrol,Automatic,Sedan,3838,413,17.47,6,85557.83,Portugal,"Green,Red",FALSE,9/27/2020 15:29,7/12/2022 1:33
+460,Maruti,Swift,2009,Petrol,Manual,Sedan,2339,408,23.09,2,137233.12,Azerbaijan,"Blue,Red,Silver",FALSE,8/3/2024 15:02,12/5/2024 17:39
+461,Maruti,Ertiga,2009,Hybrid,Manual,Coupe,4032,468,9.34,4,136898.75,New Caledonia,"Green,Black,Blue",TRUE,7/5/2023 12:25,12/1/2023 14:20
+462,Hyundai,Tucson,2005,Electric,Manual,SUV,4813,103,18.45,2,93532.23,Kazakhstan,"Gray,Green,White",FALSE,12/9/2024 9:34,1/31/2025 16:42
+463,Maruti,Baleno,2020,Petrol,Automatic,SUV,4933,463,18.23,2,63322.72,Saint Martin,"Black,Silver,Green",FALSE,7/7/2022 12:04,10/2/2024 14:30
+464,Toyota,Camry,2011,Hybrid,Automatic,SUV,3903,239,13.64,6,111698.92,Austria,"Green,Gray",FALSE,5/21/2024 12:16,1/22/2025 8:38
+465,Maruti,Swift,2020,Hybrid,Automatic,Sedan,4125,483,24.38,4,99352.04,Oman,"Blue,White,Green,Silver",TRUE,4/5/2023 0:59,11/6/2024 2:12
+466,Hyundai,Sonata,2020,Hybrid,Manual,Sedan,2901,284,21.92,5,129256.34,Tunisia,"Gray,Green,Blue",TRUE,6/23/2022 16:56,3/2/2024 8:33
+467,BMW,3 Series,2016,Diesel,Manual,SUV,1976,500,5.24,7,82435.65,Jordan,"Silver,Black,White,Blue",FALSE,8/9/2024 16:36,3/7/2025 17:56
+468,Hyundai,Tucson,2009,Diesel,Automatic,Hatchback,4433,253,22.9,5,60810.32,Timor-Leste,"White,Black",TRUE,8/21/2020 2:16,5/13/2022 5:45
+469,Hyundai,Tucson,2007,Petrol,Automatic,Hatchback,2651,335,31.28,7,66452.15,Venezuela,"Gray,White,Red",TRUE,8/1/2024 21:27,3/20/2025 14:17
+470,BMW,X5,2018,Electric,Automatic,Coupe,3367,112,15.4,4,20821,Portugal,"White,Blue",FALSE,5/1/2022 18:25,6/28/2024 19:51
+471,BMW,X3,2015,Electric,Manual,Coupe,1711,132,17.97,5,148439.87,Pitcairn Islands,"Silver,Red",FALSE,5/9/2020 18:34,9/17/2021 1:13
+472,Honda,Accord,2005,Diesel,Automatic,SUV,4733,313,17.71,2,52881,Cook Islands,"White,Green,Red,Black",TRUE,11/29/2020 8:59,6/22/2021 16:40
+473,Maruti,Ertiga,2017,Electric,Automatic,Hatchback,850,138,21.84,7,100046.12,Honduras,"White,Silver,Red,Blue",FALSE,4/10/2024 8:21,11/26/2024 6:09
+474,Tesla,Model Y,2024,Electric,Manual,SUV,3747,141,8.1,2,8971.96,Djibouti,"Blue,Black,Green,Gray",TRUE,12/12/2022 1:14,7/25/2023 19:45
+475,Honda,Civic,2009,Hybrid,Automatic,Coupe,4093,245,15.66,6,119390.33,Korea,"Black,Gray,Blue,Silver",TRUE,1/15/2024 21:52,5/11/2025 12:33
+476,BMW,X5,2015,Petrol,Automatic,Hatchback,1582,208,27.59,5,90576.28,Lao People's Democratic Republic,"Silver,Green",FALSE,6/9/2021 6:11,12/14/2024 13:01
+477,Tesla,Model X,2015,Diesel,Automatic,Coupe,1466,141,5.68,2,48455.27,Paraguay,"Blue,White,Silver",FALSE,12/10/2021 2:40,3/18/2024 19:12
+478,Honda,Accord,2021,Hybrid,Automatic,Hatchback,3970,438,25.03,2,65447.28,Ethiopia,"White,Black,Red",TRUE,3/7/2022 1:27,8/5/2022 14:33
+479,Tesla,Model X,2012,Hybrid,Automatic,Hatchback,2908,463,26.31,2,116809.52,Suriname,"Black,White,Blue",FALSE,12/19/2023 12:11,8/2/2024 15:01
+480,Honda,Accord,2024,Hybrid,Automatic,Hatchback,3801,144,23.89,7,140597.51,Anguilla,"Silver,Red,Black",TRUE,10/17/2023 4:25,11/9/2024 7:26
+481,Honda,Accord,2014,Petrol,Automatic,Coupe,3134,438,33.9,2,60202.93,Saint Helena,"Green,White,Blue,Black",TRUE,4/29/2023 2:32,11/29/2024 4:49
+482,Ford,Fusion,2024,Electric,Automatic,Coupe,2830,153,24.19,4,60783.09,San Marino,"Gray,Blue",TRUE,10/20/2023 18:03,4/3/2024 7:02
+483,Honda,CR-V,2019,Diesel,Automatic,Coupe,2932,245,10.65,5,107255.87,Cuba,"Green,Black,Red",FALSE,3/24/2024 15:42,6/9/2024 5:33
+484,Toyota,RAV4,2007,Hybrid,Manual,Coupe,3189,212,26.96,6,92661.17,Moldova,"White,Green,Blue,Silver",TRUE,4/18/2023 0:11,5/7/2023 20:02
+485,Ford,Explorer,2013,Diesel,Manual,Sedan,2578,195,12.54,2,8296.99,Belgium,"Blue,Black,Green,White",FALSE,3/26/2022 5:49,2/7/2023 14:34
+486,Hyundai,Santa Fe,2019,Electric,Automatic,Coupe,1944,437,32.99,6,39151.52,Lithuania,"Blue,Black,Gray",TRUE,11/18/2024 20:39,1/27/2025 0:57
+487,BMW,3 Series,2023,Electric,Manual,Sedan,2662,275,17.07,4,78559.84,Bolivia,"Blue,Gray",FALSE,4/6/2023 21:30,10/27/2024 11:40
+488,Ford,Escape,2015,Petrol,Automatic,Hatchback,2347,81,11.66,5,137751.51,Armenia,"Blue,White,Gray",FALSE,7/14/2023 11:15,11/29/2023 20:12
+489,Hyundai,Tucson,2016,Diesel,Manual,Hatchback,2272,111,15.58,5,49500.71,Niger,"Silver,Red,White",TRUE,5/9/2025 20:42,5/15/2025 22:30
+490,Toyota,RAV4,2023,Hybrid,Manual,SUV,3763,270,23.76,5,71997.64,South Africa,"White,Black,Green,Blue",FALSE,2/4/2025 5:24,4/2/2025 16:10
+491,Toyota,Camry,2006,Hybrid,Automatic,Sedan,4201,484,7.71,6,96996.73,Bosnia and Herzegovina,"Red,Green",TRUE,12/10/2024 22:57,12/22/2024 0:37
+492,Honda,Pilot,2020,Electric,Manual,Hatchback,875,187,15.2,5,64403.3,Saint Barthelemy,"Green,Black,Blue",FALSE,4/3/2025 0:33,5/21/2025 11:23
+493,Toyota,RAV4,2011,Electric,Automatic,Hatchback,2508,480,9.22,2,113951.81,Iraq,"Black,White,Silver,Green",FALSE,8/23/2022 18:48,11/25/2022 10:03
+494,Hyundai,Tucson,2009,Petrol,Manual,Hatchback,1521,155,15.95,5,129120.02,Central African Republic,"Gray,Green,White",TRUE,3/13/2024 19:01,12/22/2024 6:12
+495,Ford,Fusion,2019,Diesel,Manual,SUV,1485,61,29.33,4,96962.57,Gabon,"White,Silver",FALSE,7/20/2024 22:52,8/8/2024 17:46
+496,BMW,3 Series,2006,Petrol,Automatic,Coupe,2913,287,27.2,6,135197.87,Central African Republic,"Blue,Black,White,Green",TRUE,3/27/2022 8:05,7/29/2022 10:47
+497,Hyundai,Elantra,2013,Hybrid,Manual,SUV,4634,118,9.87,7,58808.41,Suriname,"Silver,White",TRUE,7/12/2022 17:24,12/26/2023 15:49
+498,Honda,Pilot,2012,Petrol,Automatic,SUV,889,66,16.5,7,89897.53,Chile,"Blue,White",FALSE,5/15/2025 7:05,5/20/2025 15:25
+499,Ford,Fusion,2020,Petrol,Automatic,SUV,4039,225,5.11,2,139435.17,Ecuador,"Blue,Black",TRUE,11/7/2023 8:23,4/26/2025 23:33
+500,Hyundai,Santa Fe,2009,Electric,Automatic,Sedan,1625,377,18.66,6,71708.06,Saint Barthelemy,"Silver,Green",FALSE,12/22/2023 19:00,7/26/2024 21:41
