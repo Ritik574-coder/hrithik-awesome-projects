@@ -1,0 +1,431 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{padding:0 2px 24px;font-family:var(--font-sans)}
+.topbar{display:flex;align-items:center;gap:10px;padding:14px 0 14px;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:14px;flex-wrap:wrap}
+.topbar h2{font-size:15px;font-weight:500;color:var(--color-text-primary);white-space:nowrap}
+.sw{flex:1;min-width:160px;max-width:340px;position:relative}
+.sw input{width:100%;padding:6px 10px 6px 28px;font-size:13px;border-radius:var(--border-radius-md)}
+.si{position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--color-text-tertiary);pointer-events:none}
+.badge{font-size:11px;color:var(--color-text-tertiary);white-space:nowrap;margin-left:auto}
+.pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
+.pill{font-size:11px;padding:3px 9px;border-radius:20px;cursor:pointer;border:0.5px solid var(--color-border-secondary);color:var(--color-text-secondary);background:transparent;transition:background .15s,color .15s;white-space:nowrap}
+.pill:hover{background:var(--color-background-secondary)}
+.pill.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+.cats{display:flex;flex-direction:column;gap:18px}
+.ctitle{font-size:10px;font-weight:500;letter-spacing:.08em;color:var(--color-text-tertiary);text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;gap:8px}
+.ctitle span{font-size:10px;background:var(--color-background-secondary);color:var(--color-text-tertiary);padding:1px 6px;border-radius:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:11px 13px;cursor:pointer;transition:border-color .15s,background .15s}
+.card:hover{border-color:var(--color-border-secondary);background:var(--color-background-secondary)}
+.card.open{border-color:var(--color-border-info)}
+.ctop{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.cname{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--color-text-primary);background:var(--color-background-secondary);padding:2px 6px;border-radius:4px;display:inline-block;word-break:break-all}
+.carrow{font-size:10px;color:var(--color-text-tertiary);margin-top:3px;flex-shrink:0;transition:transform .2s}
+.card.open .carrow{transform:rotate(90deg)}
+.cdef{font-size:12px;color:var(--color-text-secondary);margin-top:5px;line-height:1.5}
+.cdetail{display:none;margin-top:9px;border-top:0.5px solid var(--color-border-tertiary);padding-top:9px}
+.card.open .cdetail{display:block}
+.exlabel{font-size:10px;font-weight:500;letter-spacing:.05em;color:var(--color-text-tertiary);text-transform:uppercase;margin-bottom:3px}
+.ex{font-family:var(--font-mono);font-size:11px;background:var(--color-background-tertiary);color:var(--color-text-primary);padding:6px 9px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);word-break:break-all;line-height:1.6}
+.tip{margin-top:7px;font-size:11px;color:var(--color-text-secondary);line-height:1.5}
+.tipbold{color:var(--color-text-info);font-weight:500}
+.askbtn{margin-top:8px;font-size:11px;color:var(--color-text-info);cursor:pointer;background:none;border:none;padding:0;display:flex;align-items:center;gap:3px}
+.askbtn:hover{text-decoration:underline}
+.empty{text-align:center;color:var(--color-text-tertiary);font-size:14px;padding:40px 0}
+</style>
+
+<div class="wrap">
+<div class="topbar">
+  <h2>Linux for Data Engineers</h2>
+  <div class="sw"><span class="si">⌕</span><input id="q" type="text" placeholder="Search commands, descriptions…" oninput="render()"></div>
+  <span class="badge" id="badge"></span>
+</div>
+<div class="pills" id="pills"></div>
+<div class="cats" id="cats"></div>
+</div>
+
+<script>
+const D=[
+{cat:"File Viewing",cmds:[
+{n:"cat",e:"cat app.log",d:"Print entire file to terminal.",t:"Combine files: cat f1 f2 > merged.txt"},
+{n:"less",e:"less app.log",d:"Scrollable file viewer. / to search, q to quit.",t:"Press G to jump to end, g to start."},
+{n:"more",e:"more app.log",d:"Page through a file one screen at a time.",t:"Space advances, q quits."},
+{n:"head",e:"head -n 20 app.log",d:"Show first N lines of a file (default 10).",t:"head -n 1 file.csv shows the header row."},
+{n:"tail",e:"tail -n 50 app.log",d:"Show last N lines of a file.",t:"tail -n +2 skips the first line (skip CSV header)."},
+{n:"tail -f",e:"tail -f app.log",d:"Follow a live log — streams new lines as they appear.",t:"Follow multiple: tail -f f1.log f2.log"},
+{n:"tac",e:"tac app.log",d:"Print file in reverse line order.",t:"Useful to read latest log entries without tail."},
+{n:"nl",e:"nl app.log",d:"Print file with line numbers prepended.",t:"Equivalent to cat -n."},
+{n:"od",e:"od -c file.bin",d:"Octal dump — inspect binary files as characters/hex.",t:"od -An -tx1 for hex without offset."},
+{n:"xxd",e:"xxd file.bin | head",d:"Hex dump a binary file in readable format.",t:"Reverse hex to binary: xxd -r hex.txt out.bin"},
+{n:"strings",e:"strings model.pkl",d:"Extract printable strings from binary files.",t:"Useful to peek at serialized ML models or parquet metadata."},
+{n:"wc",e:"wc -l data.csv",d:"Count lines, words, or bytes in a file.",t:"wc -l counts rows; wc -c counts bytes."},
+{n:"diff",e:"diff old.csv new.csv",d:"Show line-by-line differences between two files.",t:"Side-by-side: diff -y f1 f2"},
+{n:"vimdiff",e:"vimdiff file1 file2",d:"Visual side-by-side diff in vim.",t:"Use ]c and [c to jump between changes."},
+]},
+{cat:"File Searching",cmds:[
+{n:"grep",e:"grep 'ERROR' app.log",d:"Search for a pattern in a file and print matching lines.",t:"Recursive: grep -r 'ERROR' /var/log/"},
+{n:"grep -n",e:"grep -n 'ERROR' app.log",d:"Show matching lines with line numbers.",t:"Jump to line in vim: :123"},
+{n:"grep -i",e:"grep -i 'error' app.log",d:"Case-insensitive pattern match.",t:"Combine: grep -in 'error' app.log"},
+{n:"grep -v",e:"grep -v 'DEBUG' app.log",d:"Invert match — print lines that do NOT match.",t:"Filter pipeline noise: grep -v 'INFO' app.log"},
+{n:"grep -c",e:"grep -c 'ERROR' app.log",d:"Count matching lines (not print them).",t:"Quick error frequency check."},
+{n:"grep -A/-B/-C",e:"grep -C 3 'ERROR' app.log",d:"Show N lines of context around each match.",t:"-A after, -B before, -C both."},
+{n:"grep -E",e:"grep -E 'ERR|WARN' app.log",d:"Extended regex — match multiple patterns with |.",t:"Same as egrep."},
+{n:"grep -o",e:"grep -oP '\\d+\\.\\d+\\.\\d+\\.\\d+' app.log",d:"Print only the matched portion, not the full line.",t:"-P enables Perl regex — great for extracting IPs, dates."},
+{n:"grep -l",e:"grep -rl 'API_KEY' /etc/",d:"Print only filenames that contain the match.",t:"Fast way to find which configs contain a keyword."},
+{n:"awk",e:"awk -F',' '{print $1,$3}' data.csv",d:"Column-based text processing — filter, compute, reformat.",t:"Sum column: awk -F',' '{s+=$2} END{print s}' data.csv"},
+{n:"awk NR",e:"awk 'NR>1' data.csv",d:"Skip first N rows (e.g. skip CSV header).",t:"awk 'NR==1' prints only the header."},
+{n:"awk filter",e:"awk -F',' '$3>1000' sales.csv",d:"Filter rows where a column meets a condition.",t:"Combine conditions: awk '$2>0 && $3<100'"},
+{n:"sed",e:"sed 's/ERROR/FIXED/g' app.log",d:"Stream editor — find and replace in file content.",t:"Edit in place: sed -i 's/old/new/g' file.txt"},
+{n:"sed -n",e:"sed -n '10,20p' data.csv",d:"Print only lines 10 to 20 of a file.",t:"Combine with wc -l to slice any chunk."},
+{n:"sed delete",e:"sed '/^#/d' config.cfg",d:"Delete lines matching a pattern (e.g. comments).",t:"Delete blank lines: sed '/^$/d' file.txt"},
+]},
+{cat:"File & Directory Management",cmds:[
+{n:"ls",e:"ls -lh /var/log",d:"List files with human-readable sizes, permissions, dates.",t:"Sort by size: ls -lhS; by time: ls -lt"},
+{n:"ls -la",e:"ls -la ~",d:"List all files including hidden dotfiles.",t:"Hidden files start with . — configs, .env, etc."},
+{n:"pwd",e:"pwd",d:"Print current working directory full path.",t:"Use in scripts: DIR=$(pwd)"},
+{n:"cd",e:"cd /var/log/app",d:"Change directory.",t:"cd - returns to previous dir. cd ~ goes home."},
+{n:"mkdir -p",e:"mkdir -p /data/raw/2024/01",d:"Create nested directories in one command.",t:"Essential for setting up pipeline folder structures."},
+{n:"rmdir",e:"rmdir emptydir",d:"Remove an empty directory.",t:"Use rm -r for non-empty."},
+{n:"rm -rf",e:"rm -rf /tmp/old_job/",d:"Recursively force-delete a directory and all contents.",t:"DANGEROUS — double-check path before running!"},
+{n:"cp -r",e:"cp -r raw/ raw_backup/",d:"Copy directory and all contents recursively.",t:"Preserve metadata: cp -rp source/ dest/"},
+{n:"mv",e:"mv job_v1.py job_v2.py",d:"Rename a file or move it to another directory.",t:"Move many files: mv *.csv /data/archive/"},
+{n:"ln -s",e:"ln -s /data/raw latest_raw",d:"Create a symbolic link (shortcut) to a file or directory.",t:"Very useful for version-agnostic paths in pipelines."},
+{n:"find -name",e:"find /data -name '*.parquet'",d:"Recursively find files by name pattern.",t:"Case-insensitive: find -iname '*.Parquet'"},
+{n:"find -mtime",e:"find /data -mtime -1",d:"Find files modified in the last N days.",t:"Older than 30 days: find /data -mtime +30"},
+{n:"find -size",e:"find /data -size +500M",d:"Find files larger than a given size.",t:"Find empty files: find . -empty"},
+{n:"find -exec",e:"find . -name '*.log' -exec gzip {} \\;",d:"Run a command on every file found.",t:"Preview first: replace -exec rm with -exec echo"},
+{n:"locate",e:"locate pipeline.py",d:"Fast file search using a pre-built index database.",t:"Update index first: sudo updatedb"},
+{n:"which",e:"which python3",d:"Show full path of an executable in PATH.",t:"Verify which binary will run: which java"},
+{n:"tree",e:"tree -L 3 /data",d:"Display directory structure as an ASCII tree.",t:"Show only dirs: tree -d; with sizes: tree -sh"},
+{n:"realpath",e:"realpath ../data/file.csv",d:"Resolve and print the absolute path of a file.",t:"Useful in scripts to avoid relative path bugs."},
+{n:"basename",e:"basename /data/raw/jan.csv",d:"Extract just the filename from a full path.",t:"basename /path/to/file.csv .csv returns 'file'"},
+{n:"dirname",e:"dirname /data/raw/jan.csv",d:"Extract the directory part of a full path.",t:"Useful in scripts: DIR=$(dirname $0)"},
+]},
+{cat:"Text & Data Processing",cmds:[
+{n:"cut",e:"cut -d',' -f1,3 data.csv",d:"Extract specific columns from delimited text.",t:"By character: cut -c1-10 file.txt"},
+{n:"paste",e:"paste file1.txt file2.txt",d:"Merge lines of multiple files side by side (like a column join).",t:"Custom delimiter: paste -d',' f1 f2"},
+{n:"join",e:"join -t',' -1 1 -2 1 f1.csv f2.csv",d:"Merge two sorted files on a common key field (like SQL JOIN).",t:"Both files must be sorted on the join key first."},
+{n:"sort",e:"sort -t',' -k2 -n data.csv",d:"Sort lines numerically or alphabetically, by column.",t:"Reverse: sort -r; unique: sort -u"},
+{n:"sort -k",e:"sort -t',' -k3 -rn sales.csv",d:"Sort by a specific column (field) with custom delimiter.",t:"Sort by multiple keys: -k2,2 -k3,3n"},
+{n:"uniq",e:"sort file.txt | uniq -c | sort -rn",d:"Count and deduplicate consecutive identical lines.",t:"Always sort first — uniq only catches adjacent dupes."},
+{n:"tr",e:"tr ',' '\\t' < data.csv",d:"Translate or delete characters — convert CSV to TSV etc.",t:"Uppercase: tr 'a-z' 'A-Z'; remove chars: tr -d '\"'"},
+{n:"expand",e:"expand -t 4 file.py",d:"Convert tab characters to spaces.",t:"Reverse (spaces to tabs): unexpand -a"},
+{n:"column",e:"column -t -s',' data.csv",d:"Format delimited text into aligned columns for readable display.",t:"Great for quickly eyeballing CSV files in terminal."},
+{n:"head+tail slice",e:"tail -n +2 data.csv | head -n 100",d:"Slice rows 2–101 from a CSV (skip header, take 100 rows).",t:"Core technique for sampling large files."},
+{n:"split",e:"split -l 1000000 big.csv chunk_",d:"Split a large file into smaller pieces by line count.",t:"Split by size: split -b 100M big.csv part_"},
+{n:"csplit",e:"csplit data.csv '/^date/' '{*}'",d:"Split a file at pattern matches — useful for multi-section logs.",t:"More flexible than split for structured data."},
+{n:"numfmt",e:"numfmt --to=iec 1073741824",d:"Convert numbers to/from human-readable sizes (GB, MB).",t:"numfmt --from=iec 1G returns 1073741824"},
+{n:"bc",e:"echo '1024 * 1024 * 1024' | bc",d:"Arbitrary precision calculator from command line.",t:"Scale decimals: echo 'scale=4; 22/7' | bc"},
+{n:"datamash",e:"datamash sum 2 mean 2 < data.tsv",d:"Perform statistical operations (sum, mean, min, max) on text data.",t:"Group by: datamash -g1 sum 2 < data.tsv"},
+{n:"jq",e:"cat api.json | jq '.data[].id'",d:"Parse, filter, and transform JSON data at the command line.",t:"Pretty-print: jq '.' file.json; extract key: jq '.key'"},
+{n:"jq select",e:"cat data.json | jq '[.[] | select(.status==\"active\")]'",d:"Filter JSON array elements by field value.",t:"Core tool for working with API responses in pipelines."},
+{n:"python -c",e:"python3 -c \"import csv,sys; r=csv.reader(sys.stdin); [print(row[0]) for row in r]\"",d:"Run a Python one-liner — process CSV, JSON, parquet inline.",t:"Pipe data through pandas: python3 -c \"import pandas as pd; print(pd.read_csv('/dev/stdin').describe())\""},
+{n:"xmllint",e:"xmllint --xpath '//record' data.xml",d:"Parse and query XML files from the command line.",t:"Validate XML: xmllint --noout --schema schema.xsd file.xml"},
+]},
+{cat:"Compression & Archives",cmds:[
+{n:"tar -czvf",e:"tar -czvf archive.tar.gz /data/logs/",d:"Create a gzip-compressed tar archive.",t:"Exclude files: tar --exclude='*.tmp' -czvf out.tar.gz dir/"},
+{n:"tar -xzvf",e:"tar -xzvf archive.tar.gz -C /data/",d:"Extract a gzip tar archive to a specific directory.",t:"List contents without extracting: tar -tzvf archive.tar.gz"},
+{n:"tar -cjvf",e:"tar -cjvf archive.tar.bz2 /data/",d:"Create a bzip2-compressed archive (better compression than gzip).",t:"Extract: tar -xjvf archive.tar.bz2"},
+{n:"gzip",e:"gzip -k largefile.csv",d:"Compress a file with gzip. -k keeps the original.",t:"Compress all CSVs: gzip *.csv"},
+{n:"gunzip",e:"gunzip data.csv.gz",d:"Decompress a .gz file.",t:"Keep original: gunzip -k data.csv.gz"},
+{n:"zcat",e:"zcat data.csv.gz | head -5",d:"Read a gzip file without decompressing to disk.",t:"Pipe directly into awk, grep, wc etc."},
+{n:"zgrep",e:"zgrep 'ERROR' app.log.gz",d:"Search inside gzip-compressed log files without extracting.",t:"Works like grep but on .gz files directly."},
+{n:"zip / unzip",e:"zip -r archive.zip /data/",d:"Create or extract zip archives.",t:"Unzip to dir: unzip archive.zip -d /target/"},
+{n:"pigz",e:"pigz -p 8 bigfile.csv",d:"Parallel gzip — much faster compression using multiple CPU cores.",t:"pigz -d to decompress. Drop-in replacement for gzip."},
+{n:"lz4",e:"lz4 bigfile.csv bigfile.csv.lz4",d:"Extremely fast compression — great for intermediate pipeline data.",t:"lz4 -d to decompress. Preferred for temp storage speed."},
+{n:"zstd",e:"zstd -19 data.parquet -o data.parquet.zst",d:"Zstandard compression — best ratio/speed tradeoff for data files.",t:"Used natively by Parquet and Kafka."},
+{n:"bzip2",e:"bzip2 -k data.csv",d:"Better compression ratio than gzip, slower speed.",t:"bunzip2 to decompress."},
+]},
+{cat:"File Permissions & Ownership",cmds:[
+{n:"chmod 755",e:"chmod 755 run_pipeline.sh",d:"Set permissions: owner=rwx, group=r-x, others=r-x.",t:"Common for scripts that need to be executed."},
+{n:"chmod +x",e:"chmod +x run.sh",d:"Add execute permission to a file.",t:"Most common way to make a script runnable."},
+{n:"chmod -R",e:"chmod -R 750 /data/sensitive/",d:"Recursively change permissions for a directory.",t:"Always verify with ls -la after."},
+{n:"chown",e:"chown airflow:airflow dags/",d:"Change file owner and group.",t:"Recursive: chown -R user:group /data/"},
+{n:"chgrp",e:"chgrp data-team /data/shared/",d:"Change the group ownership of a file or directory.",t:"Recursive: chgrp -R data-team /data/"},
+{n:"umask",e:"umask 027",d:"Set default permission mask for newly created files.",t:"027 = new files get 640, dirs get 750."},
+{n:"ls -l",e:"ls -l run.sh",d:"Show permission string: -rwxr-xr-x. Format: type|owner|group|others.",t:"r=4 w=2 x=1. 7=rwx 6=rw- 5=r-x 4=r--"},
+{n:"getfacl",e:"getfacl /data/shared/",d:"Show fine-grained Access Control List permissions.",t:"More detailed than standard rwx permissions."},
+{n:"setfacl",e:"setfacl -m u:analyst:rx /data/",d:"Grant specific users or groups access without changing ownership.",t:"setfacl -m g:ds-team:rwx /data/project/"},
+{n:"stat",e:"stat data.csv",d:"Show full metadata: size, permissions, inode, timestamps.",t:"More detail than ls -l."},
+{n:"lsattr",e:"lsattr important.cfg",d:"List special file attributes (immutable, append-only, etc.).",t:"Set immutable: chattr +i file.cfg"},
+]},
+{cat:"Disk & Storage",cmds:[
+{n:"df -h",e:"df -h",d:"Show disk space used and available on all mounted filesystems.",t:"Check if a partition is full — common cause of pipeline failures!"},
+{n:"du -sh",e:"du -sh /data/raw/",d:"Total disk usage of a directory (summary, human-readable).",t:"du -sh * sorts all dirs in current folder."},
+{n:"du -h --max-depth",e:"du -h --max-depth=2 /data/",d:"Show disk usage per subdirectory up to N levels deep.",t:"Identify which subdirs are eating space."},
+{n:"ncdu",e:"ncdu /data",d:"Interactive disk usage browser — navigate with arrow keys.",t:"Install: apt install ncdu. Best tool for disk cleanup."},
+{n:"lsblk",e:"lsblk",d:"List all block devices and partitions in a tree.",t:"Shows mount points — useful after attaching new disks."},
+{n:"fdisk -l",e:"sudo fdisk -l",d:"List all disks with partition sizes and types.",t:"Requires sudo."},
+{n:"mount",e:"mount /dev/sdb1 /mnt/data",d:"Mount a storage device to a directory.",t:"View mounted: mount | grep ^/dev"},
+{n:"umount",e:"umount /mnt/data",d:"Unmount a mounted filesystem.",t:"Force if busy: umount -l /mnt/data"},
+{n:"fsck",e:"sudo fsck /dev/sdb1",d:"Check and repair filesystem errors.",t:"Run only on unmounted partitions."},
+{n:"dd",e:"dd if=/dev/sda of=disk.img bs=4M status=progress",d:"Low-level disk copy — create disk images, clone partitions.",t:"Also used to benchmark disk speed."},
+{n:"fallocate",e:"fallocate -l 1G testfile",d:"Quickly allocate a file of a specific size (for testing).",t:"Faster than dd for creating placeholder files."},
+{n:"hdparm",e:"sudo hdparm -Tt /dev/sda",d:"Benchmark disk read speed.",t:"Helps evaluate storage performance for data pipelines."},
+{n:"iostat",e:"iostat -xz 1",d:"Show real-time CPU and disk I/O stats — diagnose slow reads/writes.",t:"Part of sysstat: apt install sysstat"},
+]},
+{cat:"Process Management",cmds:[
+{n:"ps aux",e:"ps aux | grep spark",d:"Snapshot of all running processes with CPU/mem usage.",t:"Filter by process name with grep."},
+{n:"ps -ef",e:"ps -ef --forest",d:"Show all processes in a tree format showing parent-child relationships.",t:"Great for seeing process hierarchies (e.g. worker forks)."},
+{n:"top",e:"top",d:"Live process monitor. Press k to kill, q to quit.",t:"Press M to sort by memory, P by CPU."},
+{n:"htop",e:"htop",d:"Enhanced interactive process viewer with colors and mouse support.",t:"Install: apt install htop. Use F9 to kill processes."},
+{n:"kill",e:"kill -15 12345",d:"Send a signal to a process by PID. 15=SIGTERM (graceful), 9=SIGKILL (force).",t:"Always try SIGTERM before SIGKILL."},
+{n:"killall",e:"killall python3",d:"Kill all processes matching a name.",t:"killall -9 for force kill."},
+{n:"pkill",e:"pkill -f 'airflow worker'",d:"Kill processes matching a pattern in full command string.",t:"-f matches against the entire command, not just name."},
+{n:"nohup",e:"nohup python pipeline.py > run.log 2>&1 &",d:"Run a job immune to terminal hangup — keeps running after logout.",t:"Output goes to nohup.out if not redirected."},
+{n:"screen",e:"screen -S pipeline",d:"Create a persistent terminal session that survives disconnection.",t:"Reattach: screen -r pipeline. List: screen -ls"},
+{n:"tmux",e:"tmux new -s etl",d:"Terminal multiplexer — split panes, persist sessions, detach/reattach.",t:"Detach: Ctrl+b d. Reattach: tmux attach -t etl"},
+{n:"bg / fg",e:"bg %1",d:"Send a suspended job to background (bg) or bring it to foreground (fg).",t:"Suspend current job first with Ctrl+Z."},
+{n:"jobs",e:"jobs -l",d:"List all background jobs in current shell with their PIDs.",t:"Pair with fg %N to bring back specific job."},
+{n:"wait",e:"wait $PID",d:"Wait for a background process to finish before continuing.",t:"Used in shell scripts to synchronize parallel jobs."},
+{n:"nice / renice",e:"nice -n 10 python heavy_job.py",d:"Set process priority. Nice range: -20 (highest) to 19 (lowest).",t:"Renice a running process: renice -n 5 -p PID"},
+{n:"strace",e:"strace -p 12345",d:"Trace system calls made by a running process — debug hangs.",t:"Log to file: strace -o trace.log cmd"},
+{n:"lsof",e:"lsof -p 12345",d:"List all files opened by a process — debug file handle leaks.",t:"Files open on a path: lsof /data/raw/"},
+{n:"pmap",e:"pmap -x 12345",d:"Show memory map of a process — debug memory usage.",t:"Look for large anonymous mappings."},
+{n:"timeout",e:"timeout 300 python job.py",d:"Kill a command if it runs longer than N seconds.",t:"Exit code 124 = timed out. Great for pipeline safety."},
+]},
+{cat:"Networking",cmds:[
+{n:"ping",e:"ping -c 4 db.internal",d:"Test connectivity to a host.",t:"Specify count with -c. -i for interval."},
+{n:"curl",e:"curl -s https://api.example.com/data",d:"Transfer data over HTTP/S — essential for REST API calls.",t:"POST JSON: curl -X POST -H 'Content-Type: application/json' -d @data.json URL"},
+{n:"curl -o",e:"curl -o output.csv https://data.example.com/file.csv",d:"Download a file and save it with a specific name.",t:"-O uses the server filename. -L follows redirects."},
+{n:"wget",e:"wget -q https://data.example.com/file.csv",d:"Download files from the web. Supports resume and recursion.",t:"Resume: wget -c URL. Mirror site: wget -r URL"},
+{n:"wget --spider",e:"wget --spider https://example.com/file.csv",d:"Check if a URL exists without downloading it.",t:"Good for pipeline pre-flight checks."},
+{n:"nc (netcat)",e:"nc -zv db.host 5432",d:"Test if a TCP port is open on a remote host.",t:"Transfer data: nc -l 9999 > file.txt / nc host 9999 < file.txt"},
+{n:"ss",e:"ss -tulpn",d:"Show listening ports and active connections (modern netstat).",t:"Filter by port: ss -tulpn | grep :5432"},
+{n:"netstat",e:"netstat -tulpn",d:"Show network connections, ports, and PIDs (older systems).",t:"ss is faster on modern Linux."},
+{n:"nmap",e:"nmap -p 1-1024 192.168.1.0/24",d:"Scan network hosts and open ports.",t:"Quick host scan: nmap -sn 192.168.1.0/24"},
+{n:"ip addr",e:"ip addr show",d:"Show network interfaces and their IP addresses.",t:"Replaces ifconfig on modern systems."},
+{n:"ip route",e:"ip route show",d:"Show routing table — which gateway handles which traffic.",t:"Add route: ip route add 10.0.0.0/8 via 192.168.1.1"},
+{n:"ssh",e:"ssh -i ~/.ssh/id_rsa user@host",d:"Securely connect to a remote machine.",t:"SSH tunnel for DB: ssh -L 5433:db:5432 jumphost"},
+{n:"scp",e:"scp -r data/ user@host:/remote/path/",d:"Securely copy files to/from a remote machine over SSH.",t:"From remote: scp user@host:/path/file.csv ."},
+{n:"rsync",e:"rsync -avz --progress /data/ user@host:/backup/",d:"Sync files efficiently — transfers only changed blocks.",t:"Dry run first: rsync -avzn source/ dest/"},
+{n:"sftp",e:"sftp user@host",d:"Interactive secure file transfer session.",t:"Batch mode: sftp -b commands.txt user@host"},
+{n:"telnet",e:"telnet db.host 5432",d:"Test raw TCP connectivity to a port (no encryption).",t:"Use nc -zv for non-interactive port checking."},
+{n:"dig",e:"dig api.example.com",d:"Query DNS records for a hostname.",t:"Specific record: dig MX example.com; reverse: dig -x IP"},
+{n:"nslookup",e:"nslookup db.internal",d:"Resolve hostname to IP address (and reverse).",t:"Check if a service hostname resolves correctly."},
+{n:"traceroute",e:"traceroute db.host",d:"Trace the network path to a host, showing each hop.",t:"Diagnose where network latency is introduced."},
+{n:"iftop",e:"sudo iftop -i eth0",d:"Real-time network bandwidth usage by connection.",t:"Install: apt install iftop"},
+{n:"tcpdump",e:"sudo tcpdump -i eth0 port 5432",d:"Capture and inspect raw network packets on an interface.",t:"Save to file: tcpdump -w capture.pcap -i eth0"},
+{n:"host",e:"host api.example.com",d:"Simple DNS lookup tool — resolves hostname to IP.",t:"Faster and simpler than dig for quick checks."},
+]},
+{cat:"System Info & Monitoring",cmds:[
+{n:"uname -a",e:"uname -a",d:"Print all system info: kernel version, hostname, architecture.",t:"Kernel only: uname -r"},
+{n:"hostname",e:"hostname -f",d:"Print system's hostname. -f for fully qualified domain name.",t:"Set hostname: hostnamectl set-hostname newname"},
+{n:"uptime",e:"uptime",d:"Show how long the system has been up and load averages (1/5/15 min).",t:"Load > # of CPU cores = system is overloaded."},
+{n:"free -h",e:"free -h",d:"Show RAM and swap usage in human-readable form.",t:"Watch live: watch -n 2 free -h"},
+{n:"vmstat",e:"vmstat 1 10",d:"Report virtual memory, CPU, I/O stats every 1 second, 10 times.",t:"Look at 'wa' column for disk I/O wait."},
+{n:"mpstat",e:"mpstat -P ALL 1",d:"Per-CPU utilization stats — detect uneven load across cores.",t:"Part of sysstat package."},
+{n:"sar",e:"sar -u 1 5",d:"System Activity Reporter — historical and live CPU/IO/memory.",t:"sar -r for memory, sar -d for disk, sar -n DEV for network."},
+{n:"dstat",e:"dstat -cdngy",d:"All-in-one live stats: CPU, disk, network, paging.",t:"Install: apt install dstat. Great overview dashboard."},
+{n:"glances",e:"glances",d:"Comprehensive real-time system monitor — like htop++.",t:"Web mode: glances -w (access via browser)"},
+{n:"lscpu",e:"lscpu",d:"Show CPU architecture: cores, threads, cache sizes, NUMA.",t:"Check how many cores are available for parallel jobs."},
+{n:"nproc",e:"nproc",d:"Print number of available CPU processing units.",t:"Use in scripts: WORKERS=$(nproc)"},
+{n:"lsmem",e:"lsmem",d:"List available memory ranges and their sizes.",t:"Shows NUMA topology of memory."},
+{n:"dmesg",e:"dmesg | grep -i oom",d:"Kernel ring buffer — see hardware events, OOM kills, boot messages.",t:"OOM (Out of Memory) kills from big Spark/Pandas jobs appear here."},
+{n:"journalctl",e:"journalctl -u airflow-scheduler -f",d:"Systemd service logs — live or historical.",t:"Last hour: journalctl --since '1 hour ago'"},
+{n:"sysctl",e:"sysctl -a | grep net.ipv4",d:"View or modify kernel parameters at runtime.",t:"Increase open files: sysctl -w fs.file-max=100000"},
+{n:"ulimit",e:"ulimit -n 65536",d:"Set resource limits for the current shell (open files, memory, processes).",t:"Check current: ulimit -a. Critical for Spark/Kafka workers."},
+{n:"env",e:"env | sort",d:"Print all environment variables.",t:"Check specific: echo $JAVA_HOME or printenv PATH"},
+{n:"printenv",e:"printenv PATH",d:"Print value of a specific environment variable.",t:"More targeted than env | grep."},
+{n:"lsof -i",e:"lsof -i :8080",d:"Show which process is using a specific network port.",t:"List all network connections: lsof -i"},
+{n:"watch",e:"watch -n 5 'df -h /data'",d:"Run a command repeatedly every N seconds — live monitoring.",t:"watch -d highlights changes between refreshes."},
+]},
+{cat:"User & Access Management",cmds:[
+{n:"whoami",e:"whoami",d:"Print current logged-in username.",t:"In scripts: [ \"$(whoami)\" = 'root' ] || exit 1"},
+{n:"id",e:"id airflow",d:"Show user UID, GID, and all group memberships.",t:"Check group membership before setting permissions."},
+{n:"sudo",e:"sudo systemctl restart airflow",d:"Run a command as root (or another user).",t:"sudo -u airflow python pipeline.py runs as airflow user."},
+{n:"su",e:"su - airflow",d:"Switch to another user account with their full environment.",t:"su - loads target's .bashrc, PATH, etc."},
+{n:"useradd",e:"useradd -m -s /bin/bash airflow",d:"Create a new user account with home directory and shell.",t:"Add to group: useradd -G docker,sudo newuser"},
+{n:"usermod",e:"usermod -aG docker airflow",d:"Modify an existing user — add to groups, change shell, etc.",t:"-aG appends group without removing existing ones!"},
+{n:"passwd",e:"passwd airflow",d:"Set or change a user's password.",t:"Force password change on next login: passwd -e user"},
+{n:"groups",e:"groups airflow",d:"List all groups a user belongs to.",t:"Must log out/in for new group membership to take effect."},
+{n:"visudo",e:"sudo visudo",d:"Safely edit the sudoers file to grant sudo permissions.",t:"Never edit /etc/sudoers directly — use visudo."},
+{n:"ssh-keygen",e:"ssh-keygen -t ed25519 -C 'pipeline-key'",d:"Generate an SSH key pair for passwordless authentication.",t:"Ed25519 is modern and preferred over RSA."},
+{n:"ssh-copy-id",e:"ssh-copy-id user@remote-host",d:"Copy your public key to a remote host for passwordless SSH.",t:"Sets up authorized_keys automatically."},
+{n:"last",e:"last -20",d:"Show recent login history for all users.",t:"Check who logged in and from where."},
+{n:"w",e:"w",d:"Show who is logged in and what they are running.",t:"Includes login time and idle time."},
+{n:"sudo -l",e:"sudo -l",d:"List what commands the current user can run with sudo.",t:"Useful for auditing permissions on shared servers."},
+]},
+{cat:"Environment & Shell",cmds:[
+{n:"export",e:"export SPARK_HOME=/opt/spark",d:"Set an environment variable and make it available to child processes.",t:"Add to ~/.bashrc to persist across sessions."},
+{n:"source",e:"source ~/.bashrc",d:"Reload a shell config file in the current session without restarting.",t:"Also: . ~/.bashrc (dot notation)."},
+{n:"alias",e:"alias ll='ls -lah'",d:"Create a shortcut command for a longer command.",t:"Add to ~/.bashrc to persist. List all: alias"},
+{n:"unset",e:"unset MY_VAR",d:"Remove an environment variable from the current session.",t:"Also removes shell functions: unset -f funcname"},
+{n:"echo",e:"echo $JAVA_HOME",d:"Print text or variable values to stdout.",t:"Print without newline: echo -n 'text'"},
+{n:"set",e:"set -euo pipefail",d:"Control shell behavior. -e exit on error, -u error on unset vars, -o pipefail catch pipe failures.",t:"Gold standard header for production shell scripts."},
+{n:"set -x",e:"set -x",d:"Enable debug mode — print every command before executing.",t:"set +x turns it off. Use in CI/CD scripts to debug."},
+{n:"history",e:"history | grep docker",d:"Show command history. Pipe to grep to search past commands.",t:"Run previous command: !! Re-run #42: !42"},
+{n:"type",e:"type python3",d:"Show whether a name is a builtin, alias, function, or external command.",t:"Reveals aliases and function definitions too."},
+{n:"xargs",e:"cat ids.txt | xargs -I{} curl https://api.com/{}",d:"Build commands from stdin — essential for batch processing.",t:"Parallel: xargs -P 8 for 8 parallel jobs."},
+{n:"parallel",e:"parallel python process.py ::: file1 file2 file3",d:"GNU Parallel — run commands in parallel with fine-grained control.",t:"Install: apt install parallel. Replacement for xargs -P."},
+{n:"eval",e:"eval $(ssh-agent -s)",d:"Execute a string as a shell command — used to set env from command output.",t:"Use carefully — eval can be a security risk."},
+{n:"readonly",e:"readonly DB_HOST=prod.db.internal",d:"Create an environment variable that cannot be modified.",t:"Good for protecting critical config in scripts."},
+{n:"trap",e:"trap 'rm -f /tmp/lock; exit' INT TERM EXIT",d:"Run cleanup commands when a script exits or receives a signal.",t:"Essential pattern for safe pipeline scripts."},
+]},
+{cat:"Pipelines & Redirection",cmds:[
+{n:"|",e:"ps aux | grep python | awk '{print $2}'",d:"Pipe — pass stdout of one command as stdin to the next.",t:"Chain unlimited commands."},
+{n:">",e:"python etl.py > output.log",d:"Redirect stdout to a file (overwrites).",t:"Use >> to append instead."},
+{n:">>",e:"echo $(date) >> run.log",d:"Append stdout to a file without overwriting.",t:"Standard pattern for pipeline log files."},
+{n:"2>",e:"python job.py 2> errors.log",d:"Redirect stderr to a file separately from stdout.",t:"Capture both: cmd > out.log 2>&1"},
+{n:"2>&1",e:"python job.py > all.log 2>&1",d:"Merge stderr into stdout — both go to the same destination.",t:"Common pattern in cron jobs and CI scripts."},
+{n:"/dev/null",e:"python job.py > /dev/null 2>&1",d:"Discard all output (stdout and stderr).",t:"Use when you only care about exit code."},
+{n:"tee",e:"python etl.py | tee run.log",d:"Write to a file AND display output simultaneously.",t:"Append mode: tee -a run.log"},
+{n:"process substitution",e:"diff <(sort f1.csv) <(sort f2.csv)",d:"Use command output as a file argument without temp files.",t:"<(cmd) treats cmd output as a virtual file."},
+{n:"here-string",e:"python3 <<< 'import sys; print(sys.version)'",d:"Pass a string directly as stdin to a command.",t:"Avoid writing temp files for small inputs."},
+{n:"here-doc",e:"psql db << 'EOF'\nSELECT count(*) FROM orders;\nEOF",d:"Pass a multi-line block as stdin — common for SQL or config.",t:"'EOF' (quoted) prevents variable expansion inside."},
+{n:"mkfifo",e:"mkfifo /tmp/pipe && cmd1 > /tmp/pipe & cmd2 < /tmp/pipe",d:"Create a named pipe (FIFO) for inter-process communication.",t:"Zero-copy streaming between processes."},
+{n:"pv",e:"pv largefile.csv | gzip > file.csv.gz",d:"Pipe Viewer — show progress bar and transfer rate in a pipeline.",t:"Install: apt install pv. Indispensable for large file ops."},
+{n:"moreutils sponge",e:"sort data.csv | sponge data.csv",d:"Buffer all stdin before writing — allows safe in-place modification.",t:"Without sponge, sort file > file truncates before sorting."},
+]},
+{cat:"Cron & Job Scheduling",cmds:[
+{n:"crontab -e",e:"crontab -e",d:"Edit the current user's cron jobs in the system editor.",t:"Format: min hour day month weekday command"},
+{n:"crontab -l",e:"crontab -l",d:"List all cron jobs for the current user.",t:"Other user: crontab -u airflow -l"},
+{n:"cron syntax",e:"0 2 * * * /data/scripts/etl.sh >> /var/log/etl.log 2>&1",d:"Run a script daily at 2:00 AM, logging output.",t:"* = every; */5 = every 5 units; 1-5 = Mon-Fri"},
+{n:"at",e:"echo '/data/etl.sh' | at 03:00 tomorrow",d:"Schedule a one-time job to run at a specific time.",t:"List pending: atq. Remove: atrm JOB_ID"},
+{n:"systemctl",e:"systemctl start airflow-scheduler",d:"Control systemd services: start, stop, restart, enable, status.",t:"Enable at boot: systemctl enable airflow-scheduler"},
+{n:"systemctl status",e:"systemctl status spark-thrift.service",d:"Check whether a service is running, its recent logs, and PID.",t:"Live logs: journalctl -u spark-thrift -f"},
+{n:"journalctl",e:"journalctl -u airflow-worker --since '2h ago'",d:"Query systemd journal logs for a service with time filtering.",t:"Follow live: journalctl -u service -f"},
+{n:"anacron",e:"cat /etc/anacrontab",d:"Runs missed cron jobs after system was off — reliable for laptops/spot instances.",t:"Handles daily/weekly/monthly jobs that may have been skipped."},
+{n:"flock",e:"flock -n /tmp/etl.lock python etl.py",d:"Prevent a script from running if another instance is already running.",t:"Essential for scheduled jobs — avoids overlapping runs."},
+{n:"run-parts",e:"run-parts /etc/cron.daily",d:"Run all executable scripts in a directory.",t:"Used by cron to run /etc/cron.daily, hourly, etc."},
+]},
+{cat:"Database & Data Tools",cmds:[
+{n:"psql",e:"psql -h db.host -U admin -d mydb",d:"Connect to a PostgreSQL database interactively.",t:"Run query: psql -c 'SELECT count(*) FROM orders;' -d mydb"},
+{n:"psql -c",e:"psql -d mydb -c '\\copy orders TO /data/orders.csv CSV HEADER'",d:"Export a PostgreSQL table to CSV from command line.",t:"Import: \\copy table FROM 'file.csv' CSV HEADER"},
+{n:"mysql",e:"mysql -h db.host -u root -p mydb",d:"Connect to a MySQL/MariaDB database.",t:"Run query inline: mysql -e 'SELECT count(*) FROM t;' mydb"},
+{n:"sqlite3",e:"sqlite3 data.db '.tables'",d:"Query a SQLite database from the command line.",t:"Export to CSV: sqlite3 -csv data.db 'SELECT * FROM t;'"},
+{n:"mongodump",e:"mongodump --db mydb --out /data/backup/",d:"Export a MongoDB database to BSON files.",t:"mongorestore to import back."},
+{n:"mongoexport",e:"mongoexport --db mydb --collection users --out users.json",d:"Export a MongoDB collection to JSON or CSV.",t:"--type csv --fields id,name,email for CSV export."},
+{n:"redis-cli",e:"redis-cli -h cache.host KEYS '*'",d:"Interact with a Redis instance from command line.",t:"Monitor commands live: redis-cli MONITOR"},
+{n:"kafka-console-producer",e:"kafka-console-producer.sh --broker-list broker:9092 --topic events",d:"Produce messages to a Kafka topic from stdin.",t:"Send file: cat events.json | kafka-console-producer.sh ..."},
+{n:"kafka-console-consumer",e:"kafka-console-consumer.sh --bootstrap-server broker:9092 --topic events --from-beginning",d:"Read messages from a Kafka topic to stdout.",t:"Read N messages: add --max-messages 100"},
+{n:"kafka-topics",e:"kafka-topics.sh --list --bootstrap-server broker:9092",d:"List, create, or describe Kafka topics.",t:"Create: kafka-topics.sh --create --topic name --partitions 3 ..."},
+{n:"spark-submit",e:"spark-submit --master yarn --py-files utils.zip job.py",d:"Submit a Spark application to a cluster.",t:"Local mode: --master local[*] for testing."},
+{n:"beeline",e:"beeline -u 'jdbc:hive2://hive:10000' -e 'SHOW TABLES;'",d:"CLI client for Hive / Spark SQL via JDBC.",t:"Run script: beeline -u URL -f query.sql"},
+{n:"hdfs dfs",e:"hdfs dfs -ls /data/warehouse/",d:"Interact with Hadoop HDFS — list, copy, move, delete files.",t:"Copy from local: hdfs dfs -put local.csv /hdfs/path/"},
+{n:"aws s3",e:"aws s3 cp s3://bucket/data/ /local/ --recursive",d:"AWS CLI — copy, sync, list S3 buckets and objects.",t:"Sync: aws s3 sync /local/ s3://bucket/prefix/"},
+{n:"gsutil",e:"gsutil -m cp -r gs://bucket/data/ /local/",d:"Google Cloud Storage CLI — copy, sync, manage GCS objects.",t:"-m enables parallel transfers."},
+{n:"az storage",e:"az storage blob download-batch -d /local/ -s container",d:"Azure CLI — download blobs from Azure Storage.",t:"az storage blob list -c container --account-name acct"},
+]},
+{cat:"Git & Version Control",cmds:[
+{n:"git clone",e:"git clone https://github.com/org/repo.git",d:"Clone a remote repository to local.",t:"Shallow clone for speed: git clone --depth 1 URL"},
+{n:"git pull",e:"git pull origin main",d:"Fetch and merge latest changes from remote.",t:"Rebase instead: git pull --rebase origin main"},
+{n:"git status",e:"git status",d:"Show changed, staged, and untracked files.",t:"Short format: git status -s"},
+{n:"git log",e:"git log --oneline -20",d:"Show recent commit history.",t:"With graph: git log --oneline --graph --all"},
+{n:"git diff",e:"git diff HEAD~1 HEAD -- pipeline.py",d:"Show changes between commits or working tree.",t:"Staged changes: git diff --cached"},
+{n:"git stash",e:"git stash push -m 'wip-feature'",d:"Temporarily save uncommitted changes and clean working tree.",t:"Apply back: git stash pop"},
+{n:"git tag",e:"git tag -a v1.2.0 -m 'Release 1.2.0'",d:"Create a version tag on a commit.",t:"Push tags: git push --tags"},
+{n:"git blame",e:"git blame pipeline.py",d:"Show who last modified each line of a file and when.",t:"Trace a bug introduction to a specific author/commit."},
+]},
+{cat:"Docker & Containers",cmds:[
+{n:"docker ps",e:"docker ps -a",d:"List running containers (-a includes stopped).",t:"Show container IDs, names, ports, status."},
+{n:"docker logs",e:"docker logs -f --tail 100 container_name",d:"Stream or show logs from a container.",t:"--since 1h shows only last hour of logs."},
+{n:"docker exec",e:"docker exec -it container_name bash",d:"Open an interactive shell inside a running container.",t:"Run a single command: docker exec container python etl.py"},
+{n:"docker run",e:"docker run -d -p 8080:8080 -v /data:/data my_image",d:"Start a new container from an image.",t:"-d detached, -p ports, -v volume mount, --rm auto-remove."},
+{n:"docker build",e:"docker build -t my-pipeline:1.0 .",d:"Build a Docker image from a Dockerfile.",t:"--no-cache forces full rebuild."},
+{n:"docker-compose up",e:"docker-compose up -d",d:"Start all services defined in docker-compose.yml.",t:"Rebuild and start: docker-compose up -d --build"},
+{n:"docker stats",e:"docker stats",d:"Live CPU, memory, and network usage per container.",t:"One-shot: docker stats --no-stream"},
+{n:"docker inspect",e:"docker inspect container_name | jq '.[0].NetworkSettings'",d:"Show detailed JSON metadata about a container or image.",t:"Pipe through jq to extract specific fields."},
+{n:"docker cp",e:"docker cp container:/app/output.csv /local/",d:"Copy files between a container and the local filesystem.",t:"Into container: docker cp local.csv container:/app/"},
+{n:"kubectl get pods",e:"kubectl get pods -n airflow",d:"List Kubernetes pods in a namespace.",t:"Watch status: kubectl get pods -w -n airflow"},
+{n:"kubectl logs",e:"kubectl logs -f pod-name -n airflow",d:"Stream logs from a Kubernetes pod.",t:"Previous container: kubectl logs pod --previous"},
+{n:"kubectl exec",e:"kubectl exec -it pod-name -n spark -- bash",d:"Open a shell inside a Kubernetes pod.",t:"Run command: kubectl exec pod -- python --version"},
+{n:"kubectl describe",e:"kubectl describe pod pod-name -n airflow",d:"Show detailed status, events, and resource info for a pod.",t:"Essential for debugging CrashLoopBackOff errors."},
+{n:"kubectl apply",e:"kubectl apply -f deployment.yaml",d:"Create or update Kubernetes resources from a YAML manifest.",t:"Dry run: kubectl apply -f deploy.yaml --dry-run=client"},
+]},
+{cat:"Python & Package Tools",cmds:[
+{n:"python3 -c",e:"python3 -c \"import pandas as pd; print(pd.read_csv('data.csv').shape)\"",d:"Run a Python one-liner — quick data inspection without a script.",t:"Profile script: python3 -m cProfile job.py"},
+{n:"pip install",e:"pip install -r requirements.txt",d:"Install Python packages from a requirements file.",t:"Upgrade all: pip list --outdated | cut -d' ' -f1 | xargs pip install -U"},
+{n:"pip freeze",e:"pip freeze > requirements.txt",d:"Export all installed packages and their versions.",t:"Always freeze before committing a project."},
+{n:"virtualenv",e:"python3 -m venv .venv && source .venv/bin/activate",d:"Create and activate an isolated Python environment.",t:"Deactivate: deactivate. Store in project root."},
+{n:"conda",e:"conda create -n de-env python=3.11",d:"Create a conda environment with a specific Python version.",t:"conda activate de-env; conda install pandas spark"},
+{n:"pyenv",e:"pyenv install 3.11.0 && pyenv local 3.11.0",d:"Manage multiple Python versions on one machine.",t:"pyenv global for system-wide, pyenv local for project."},
+{n:"jupyter",e:"jupyter notebook --no-browser --port 8888",d:"Start Jupyter Notebook server.",t:"Lab mode: jupyter lab. Remote: add --ip 0.0.0.0"},
+]},
+{cat:"Scripting & Automation",cmds:[
+{n:"bash shebang",e:"#!/usr/bin/env bash\nset -euo pipefail",d:"Standard header for production bash scripts — use env to find bash, enable strict mode.",t:"set -e exit on error, -u error on unset var, -o pipefail catch pipe errors."},
+{n:"if/else",e:"if [ -f data.csv ]; then echo 'exists'; fi",d:"Conditional logic in shell scripts.",t:"Numeric compare: [ $count -gt 0 ]. String: [ \"$s\" = 'ok' ]"},
+{n:"for loop",e:"for f in /data/*.csv; do python process.py \"$f\"; done",d:"Loop over files or a list and process each one.",t:"Always quote variables: \"$f\" to handle spaces in filenames."},
+{n:"while loop",e:"while IFS= read -r line; do echo \"$line\"; done < file.txt",d:"Read a file line by line safely.",t:"IFS= prevents trimming whitespace. -r prevents backslash interpretation."},
+{n:"functions",e:"run_job() { local job=$1; python \"$job\" && echo 'OK'; }",d:"Define reusable functions in shell scripts.",t:"local keeps variables scoped to the function."},
+{n:"$?",e:"python etl.py; echo \"Exit: $?\"",d:"Exit code of the last command. 0=success, non-zero=failure.",t:"Check in scripts: if [ $? -ne 0 ]; then handle_error; fi"},
+{n:"&&  / ||",e:"python extract.py && python transform.py && python load.py",d:"&&  runs next command only if previous succeeded. || runs if it failed.",t:"Pattern: cmd || { echo 'FAILED'; exit 1; }"},
+{n:"$()",e:"DATE=$(date +%Y%m%d); mv data.csv data_$DATE.csv",d:"Command substitution — capture output of a command into a variable.",t:"Backtick `cmd` is equivalent but harder to nest."},
+{n:"arrays",e:"files=(/data/*.csv); echo \"Count: ${#files[@]}\"",d:"Store multiple values in a bash array.",t:"Loop: for f in \"${files[@]}\"; do ..."},
+{n:"printf",e:"printf 'Row count: %d\\n' $(wc -l < data.csv)",d:"Formatted output — more reliable than echo for special characters.",t:"Good for generating structured log messages."},
+{n:"read",e:"read -p 'Enter env (prod/dev): ' ENV",d:"Prompt user for interactive input in a script.",t:"Read with timeout: read -t 10 -p 'Continue? ' ans"},
+{n:"getopts",e:"while getopts 'e:d:' opt; do case $opt in e) ENV=$OPTARG ;; esac; done",d:"Parse command-line flags in shell scripts (like -e prod -d 2024).",t:"Standard way to build scriptable CLI tools."},
+{n:"envsubst",e:"envsubst < config.template.yaml > config.yaml",d:"Replace ${VAR} placeholders in a template file with environment variable values.",t:"Essential for deploying configs across environments."},
+{n:"jinja2 (cli)",e:"j2 config.j2 vars.yaml > config.yaml",d:"Render Jinja2 templates from the command line.",t:"Install: pip install j2cli"},
+]},
+{cat:"Security & Secrets",cmds:[
+{n:"gpg --encrypt",e:"gpg -e -r keyid data.csv",d:"Encrypt a file with GPG using a recipient's public key.",t:"Decrypt: gpg -d data.csv.gpg > data.csv"},
+{n:"gpg --symmetric",e:"gpg -c --cipher-algo AES256 data.csv",d:"Encrypt a file with a passphrase (no key required).",t:"Decrypt: gpg -d data.csv.gpg"},
+{n:"openssl enc",e:"openssl enc -aes-256-cbc -in data.csv -out data.enc -k $PASS",d:"Encrypt a file with AES-256 using OpenSSL.",t:"Decrypt: openssl enc -d -aes-256-cbc -in data.enc"},
+{n:"openssl dgst",e:"openssl dgst -sha256 data.csv",d:"Compute a file's SHA-256 checksum for integrity verification.",t:"Verify a downloaded file matches expected hash."},
+{n:"md5sum / sha256sum",e:"sha256sum data.csv > data.csv.sha256",d:"Generate a checksum file for data integrity checks.",t:"Verify: sha256sum -c data.csv.sha256"},
+{n:"vault",e:"vault kv get secret/db/prod",d:"Read secrets from HashiCorp Vault.",t:"Write: vault kv put secret/db/prod password=xxx"},
+{n:"aws secretsmanager",e:"aws secretsmanager get-secret-value --secret-id prod/db/password",d:"Retrieve a secret from AWS Secrets Manager.",t:"Pipe through jq: ... | jq -r '.SecretString'"},
+{n:"ssh-agent",e:"eval $(ssh-agent) && ssh-add ~/.ssh/id_ed25519",d:"Load SSH keys into memory to avoid repeated passphrase prompts.",t:"Essential for git and remote deployments in CI."},
+{n:"chmod secrets",e:"chmod 600 ~/.aws/credentials",d:"Restrict sensitive files to owner-read-only.",t:"All key files, .env, credentials should be 600."},
+{n:"auditd",e:"ausearch -k data_access -ts today",d:"Query Linux audit logs for file access events.",t:"Configure rules: auditctl -w /data/sensitive -p rwxa"},
+]},
+{cat:"Performance & Profiling",cmds:[
+{n:"time",e:"time python etl.py",d:"Measure real, user, and sys execution time of a command.",t:"real = wall clock, user = CPU in userspace, sys = kernel CPU."},
+{n:"perf stat",e:"perf stat python etl.py",d:"Count hardware performance events (CPU cycles, cache misses, branch mispredictions).",t:"Install: apt install linux-tools-common"},
+{n:"perf top",e:"sudo perf top",d:"Live profiler showing which functions consume the most CPU.",t:"Like top but at function level."},
+{n:"strace",e:"strace -c python etl.py",d:"Summary of syscalls made and time spent in each.",t:"-c for summary, -e trace=open to filter by call type."},
+{n:"ltrace",e:"ltrace python etl.py 2>&1 | head -50",d:"Trace library function calls made by a process.",t:"Useful to see what C libraries are being called."},
+{n:"valgrind",e:"valgrind --leak-check=yes ./binary",d:"Memory error detector — find leaks, invalid reads/writes.",t:"For Python C extensions and native code."},
+{n:"perf record",e:"perf record -g python job.py && perf report",d:"Record CPU profile with call graph, then view as report.",t:"Generate flamegraph: use flamegraph.pl on perf output."},
+{n:"py-spy",e:"py-spy top --pid 12345",d:"Python-specific CPU profiler — attach to running process, no code changes.",t:"Record flamegraph: py-spy record -o flame.svg --pid PID"},
+{n:"memory_profiler",e:"python -m memory_profiler etl.py",d:"Profile memory usage line by line in a Python script.",t:"Install: pip install memory-profiler"},
+{n:"iotop",e:"sudo iotop -o",d:"Show per-process disk I/O in real time (only processes doing I/O with -o).",t:"Identify which jobs are saturating disk."},
+{n:"nethogs",e:"sudo nethogs eth0",d:"Per-process network bandwidth usage in real time.",t:"Install: apt install nethogs"},
+{n:"ab",e:"ab -n 1000 -c 10 http://api.host/endpoint",d:"Apache Bench — HTTP load testing for API endpoints.",t:"Measure throughput and latency under load."},
+{n:"wrk",e:"wrk -t 4 -c 100 -d 30s http://api.host/endpoint",d:"Modern HTTP benchmarking tool — faster and more flexible than ab.",t:"Install: apt install wrk"},
+]},
+];
+
+let active="All";
+function pills(){
+  const c=document.getElementById('pills');
+  const names=["All",...D.map(x=>x.cat)];
+  names.forEach(n=>{
+    const b=document.createElement('button');
+    b.className='pill'+(n===active?' active':'');
+    b.textContent=n==='All'?'All categories':n;
+    b.onclick=()=>{active=n;document.querySelectorAll('.pill').forEach(x=>x.classList.remove('active'));b.classList.add('active');render()};
+    c.appendChild(b);
+  });
+}
+
+function render(){
+  const q=document.getElementById('q').value.toLowerCase().trim();
+  const filtered=D.map(cat=>{
+    if(active!=='All'&&cat.cat!==active)return null;
+    const cmds=cat.cmds.filter(c=>!q||c.n.toLowerCase().includes(q)||c.d.toLowerCase().includes(q)||c.e.toLowerCase().includes(q)||(c.t&&c.t.toLowerCase().includes(q)));
+    return cmds.length?{...cat,cmds}:null;
+  }).filter(Boolean);
+  const total=filtered.reduce((a,c)=>a+c.cmds.length,0);
+  document.getElementById('badge').textContent=total+' commands';
+  const cont=document.getElementById('cats');
+  cont.innerHTML='';
+  if(!filtered.length){cont.innerHTML='<div class="empty">No commands found.</div>';return;}
+  filtered.forEach(cat=>{
+    const blk=document.createElement('div');
+    blk.innerHTML=`<div class="ctitle">${cat.cat}<span>${cat.cmds.length}</span></div><div class="grid"></div>`;
+    const grid=blk.querySelector('.grid');
+    cat.cmds.forEach(cmd=>{
+      const card=document.createElement('div');
+      card.className='card';
+      card.innerHTML=`<div class="ctop" onclick="this.closest('.card').classList.toggle('open')"><div><span class="cname">${cmd.n}</span><div class="cdef">${cmd.d}</div></div><span class="carrow">▶</span></div><div class="cdetail"><div class="exlabel">Example</div><div class="ex">${cmd.e}</div>${cmd.t?`<div class="tip"><span class="tipbold">Tip:</span> ${cmd.t}</div>`:''}<button class="askbtn" onclick="sendPrompt('Give me 5 real-world data engineering examples of: ${cmd.n}')">More data engineering examples ↗</button></div>`;
+      grid.appendChild(card);
+    });
+    cont.appendChild(blk);
+  });
+}
+
+pills();render();
+</script>
